@@ -13,21 +13,21 @@ const slides = [
     title: "Crafting Dream Interiors",
     subtitle: "Bangalore's Trusted Interior Designers",
     description: "Transforming homes, offices, and commercial spaces across Bangalore with stunning interior designs",
-    image: "/slider1.png",
+    image: "/Slider1.png",
   },
   {
     id: 2,
     title: "Elegant Living Spaces",
     subtitle: "Where Style Meets Comfort",
     description: "Contemporary interior design blending functionality with aesthetic excellence for Bangalore homes",
-    image: "/slider2.png",
+    image: "/Slider2.png",
   },
   {
     id: 3,
     title: "End-to-End Design Solutions",
     subtitle: "Your Vision, Our Expertise",
     description: "Complete interior solutions from concept development to flawless execution in Bangalore",
-    image: "/slider3.png",
+    image: "/Slider3.png",
   },
 ]
 
