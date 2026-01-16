@@ -34,20 +34,20 @@ export function WhatsAppFloat() {
 
     // Construct WhatsApp message
     const message = `
-✨ *INTERIOR DESIGN ENQUIRY* ✨
+🎓 *STUDY ABROAD ENQUIRY* 🎓
 
 • *Full Name:* ${formData.fullName}
 • *Phone Number:* ${formData.phoneNumber}
-• *Property Type:* ${formData.propertyType}
+• *Preferred Country:* ${formData.propertyType}
 • *City:* ${formData.city}
-• *Budget:* ${formData.budget || 'Not specified'}
+• *Study Level:* ${formData.budget || 'Not specified'}
 
 ―――――――――――――
-_Sent via Nesture Interiors Website_
+_Sent via Study Abroad Vadodara Website_
     `.trim()
 
     // Replace with your actual WhatsApp number (with country code, no + or spaces)
-    const whatsappNumber = "918618080171"
+    const whatsappNumber = "916353583148"
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
     // Open WhatsApp

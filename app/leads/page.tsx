@@ -7,7 +7,7 @@ import { Download, LogOut, Phone, User, Home, MapPin, IndianRupee, Calendar } fr
 const EMAIL = 'dailyleads@gmail.com'
 const PASSWORD = 'DLead@7890'
 const AUTH_KEY = 'leads_auth'
-const LEADS_KEY = 'interior_design_leads'
+const LEADS_KEY = 'study_abroad_leads'
 
 interface Lead {
   id: string
@@ -165,7 +165,7 @@ export default function LeadsPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">Interior Design Leads</h1>
+            <h1 className="text-2xl font-bold text-gray-800">Study Abroad Leads</h1>
             <p className="text-gray-500 text-sm">Total: {leads.length} leads</p>
           </div>
           <div className="flex gap-2">

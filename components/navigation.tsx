@@ -34,7 +34,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="flex items-center pt-2">
-            <h1 className={`text-lg sm:text-2xl md:text-3xl font-bold transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"}`}>Nesture Interiors</h1>
+            <h1 className={`text-lg sm:text-2xl md:text-3xl font-bold transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"}`}>Study Abroad Vadodara</h1>
           </div>
 
           {/* Desktop Navigation */}

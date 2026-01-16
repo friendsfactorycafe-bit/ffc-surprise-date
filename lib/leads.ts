@@ -12,7 +12,7 @@ export interface Lead {
 }
 
 // Store leads in localStorage
-const LEADS_KEY = "interior_design_leads"
+const LEADS_KEY = "study_abroad_leads"
 
 export const getLeads = (): Lead[] => {
   if (typeof window === "undefined") return []

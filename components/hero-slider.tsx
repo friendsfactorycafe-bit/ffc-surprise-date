@@ -10,23 +10,23 @@ import { addLead } from "@/lib/leads"
 const slides = [
   {
     id: 1,
-    title: "Crafting Dream Interiors",
-    subtitle: "Bangalore's Trusted Interior Designers",
-    description: "Transforming homes, offices, and commercial spaces across Bangalore with stunning interior designs",
+    title: "Your Gateway to Global Education",
+    subtitle: "Vadodara's Trusted Study Abroad Consultants",
+    description: "Helping students from Vadodara achieve their dreams of studying in top universities worldwide",
     image: "/Slider1.png",
   },
   {
     id: 2,
-    title: "Elegant Living Spaces",
-    subtitle: "Where Style Meets Comfort",
-    description: "Contemporary interior design blending functionality with aesthetic excellence for Bangalore homes",
+    title: "Expert Visa Assistance",
+    subtitle: "Canada, USA, UK, Australia & More",
+    description: "Complete support for student visa applications with high success rates for Vadodara students",
     image: "/Slider2.png",
   },
   {
     id: 3,
-    title: "End-to-End Design Solutions",
-    subtitle: "Your Vision, Our Expertise",
-    description: "Complete interior solutions from concept development to flawless execution in Bangalore",
+    title: "IELTS & Test Prep Coaching",
+    subtitle: "Score High, Aim Higher",
+    description: "Expert coaching for IELTS, TOEFL, PTE, and GRE to help you meet your dream university requirements",
     image: "/Slider3.png",
   },
 ]
@@ -54,19 +54,19 @@ export function HeroSlider() {
     })
 
     const message = `
-✨ *INTERIOR DESIGN ENQUIRY* ✨
+🎓 *STUDY ABROAD ENQUIRY* 🎓
 
 • *Full Name:* ${formData.fullName}
 • *Phone Number:* ${formData.phoneNumber}
-• *Property Type:* ${formData.propertyType}
+• *Preferred Country:* ${formData.propertyType}
 • *City:* ${formData.city}
-• *Budget:* ${formData.budget || 'Not specified'}
+• *Study Level:* ${formData.budget || 'Not specified'}
 
 ―――――――――――――
-_Sent via Nesture Interiors Website_
+_Sent via Study Abroad Vadodara Website_
     `.trim()
 
-    const whatsappNumber = "918618080171"
+    const whatsappNumber = "916353583148"
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappURL, "_blank")
   }
@@ -124,9 +124,9 @@ _Sent via Nesture Interiors Website_
                   <div className="mb-2 md:mb-3 pb-2 md:pb-3 border-b border-border">
                     <p className="text-xs text-accent font-mono uppercase tracking-wider mb-1">Quick Response</p>
                     <h3 className="text-xs sm:text-sm md:text-base font-bold text-card-foreground">
-                      Professional Interior Design Services
+                      Study Abroad Consulting Services
                       <br />
-                      <em className="text-xs not-italic">— Free Consultation & 3D Visualization</em>
+                      <em className="text-xs not-italic">— Free Consultation & Expert Guidance</em>
                     </h3>
                   </div>
                   <form onSubmit={handleSubmit} className="space-y-2">

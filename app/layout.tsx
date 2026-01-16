@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Playfair_Display, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -16,47 +16,54 @@ const inter = Inter({
   display: "swap",
 })
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#059669",
+}
+
 export const metadata: Metadata = {
-  title: "Nesture Interiors - Best Interior Designer in Bangalore | Transform Your Space",
+  title: "Study Abroad Consultants in Vadodara | #1 Overseas Education Experts",
   description:
-    "Nesture Interiors - Where innovation meets elegance. Expert residential & commercial interior design in Bangalore, Karnataka. Beautiful interiors yet affordable. Free consultation & 3D visualization. Call +91 861 808 0171",
+    "Vadodara's most trusted Study Abroad Consultants with 5000+ successful placements. Expert guidance for Canada, USA, UK, Australia student visas. IELTS coaching, scholarship guidance & university admissions. Call +91 6353583148",
   keywords:
-    "interior design Bangalore, home interior design, office interior design, commercial interiors, space planning, interior decorator Bangalore, home renovation Bangalore, luxury interiors, modern design, interior styling, furniture design, kitchen design, bedroom interior, living room design, interior design services, best interior designer Bangalore, Nesture Interiors",
-  authors: [{ name: "Nesture Interiors Bangalore" }],
-  creator: "Nesture Interiors",
-  publisher: "Nesture Interiors",
+    "study abroad consultants Vadodara, overseas education Vadodara, Canada student visa Vadodara, USA student visa, UK student visa, Australia student visa, IELTS coaching Vadodara, education consultancy Vadodara, best study abroad consultant Gujarat, scholarship guidance",
+  authors: [{ name: "Study Abroad Consultants Vadodara" }],
+  creator: "Study Abroad Consultants Vadodara",
+  publisher: "Study Abroad Consultants Vadodara",
   formatDetection: {
     email: true,
     address: true,
     telephone: true,
   },
-  metadataBase: new URL("https://nestureinteriors.com"),
+  metadataBase: new URL("https://studyabroadvadodara.in"),
   alternates: {
-    canonical: "https://nestureinteriors.com",
+    canonical: "https://studyabroadvadodara.in",
   },
   openGraph: {
-    title: "Nesture Interiors - Best Interior Designer in Bangalore",
+    title: "Study Abroad Consultants in Vadodara | #1 Overseas Education Experts",
     description:
-      "Transform your space with Nesture Interiors - Where innovation meets elegance. Residential & commercial interior design in Bangalore with expert craftsmanship.",
-    url: "https://nestureinteriors.com",
-    siteName: "Nesture Interiors",
+      "5000+ students placed globally. Expert guidance for Canada, USA, UK, Australia student visas. 98% visa success rate. Free counseling available!",
+    url: "https://studyabroadvadodara.in",
+    siteName: "Study Abroad Consultants Vadodara",
     locale: "en_IN",
     type: "website",
     images: [
       {
-        url: "https://nestureinteriors.com/og-image.jpg",
+        url: "https://studyabroadvadodara.in/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Nesture Interiors - Premium Interior Design in Bangalore",
+        alt: "Study Abroad Consultants in Vadodara - Your Gateway to Global Education",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nesture Interiors - Best Interior Designer in Bangalore",
-    description: "Expert interior design for homes, offices & commercial spaces. Where innovation meets elegance. Transform your space today!",
-    images: ["https://nestureinteriors.com/og-image.jpg"],
-    creator: "@nestureinteriors",
+    title: "Study Abroad Consultants Vadodara | 5000+ Students Placed",
+    description: "Your gateway to international education. Expert guidance for studying in Canada, USA, UK, Australia & more. 98% visa success rate!",
+    images: ["https://studyabroadvadodara.in/og-image.svg"],
+    creator: "@studyabroadvadodara",
   },
   robots: {
     index: true,
@@ -69,19 +76,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/icon-light-32x32.svg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/icon-dark-32x32.svg",
         media: "(prefers-color-scheme: dark)",
       },
       {
@@ -89,8 +91,9 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/apple-icon.svg",
   },
+  manifest: "/manifest.json",
   verification: {
     google: "google-site-verification-code",
   },
@@ -105,76 +108,126 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
-        "@id": "https://nestureinteriors.com/#organization",
-        name: "Nesture Interiors",
-        image: "https://nestureinteriors.com/logo.png",
-        description: "Where innovation meets elegance - Expert residential & commercial interior design services in Bangalore, Karnataka",
-        url: "https://nestureinteriors.com",
-        telephone: "+918618080171",
-        email: "nestureinterior@gmail.com",
+        "@type": "EducationalOrganization",
+        "@id": "https://studyabroadvadodara.in/#organization",
+        name: "Study Abroad Consultants Vadodara",
+        alternateName: "Study Abroad Vadodara",
+        image: "https://studyabroadvadodara.in/og-image.svg",
+        description: "Vadodara's #1 Study Abroad Consultants with 5000+ successful student placements. Expert guidance for Canada, USA, UK, Australia, Germany student visas, IELTS/PTE coaching, and university admissions with 98% visa success rate.",
+        url: "https://studyabroadvadodara.in",
+        telephone: "+916353583148",
+        email: "edu@studyabroadvadodara.in",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Nesture Interiors",
-          addressLocality: "Bangalore",
-          addressRegion: "KA",
-          postalCode: "560001",
+          streetAddress: "201, Shree Complex, RC Dutt Road, Alkapuri",
+          addressLocality: "Vadodara",
+          addressRegion: "Gujarat",
+          postalCode: "390007",
           addressCountry: "IN",
         },
-        sameAs: [],
-        priceRange: "$$$",
-        serviceArea: {
-          "@type": "City",
-          name: "Bangalore",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "22.3119",
+          longitude: "73.1723",
         },
-        areaServed: ["Koramangala", "Indiranagar", "Whitefield", "HSR Layout", "Jayanagar", "JP Nagar", "Marathahalli", "Electronic City"],
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://nestureinteriors.com/#organization",
-        name: "Nesture Interiors",
-        url: "https://nestureinteriors.com",
-        logo: "https://nestureinteriors.com/logo.png",
-        foundingDate: "2024",
-        founders: [{ "@type": "Person", name: "Nesture Interiors Team" }],
-        knowsAbout: [
-          "Interior Design",
-          "Home Design",
-          "Office Interior Design",
-          "Commercial Interior Design",
-          "Space Planning",
-          "Furniture Design",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "09:00",
+            closes: "19:00",
+          },
         ],
-      },
-      {
-        "@type": "Service",
-        "@id": "https://nestureinteriors.com/#service-residential",
-        name: "Residential Interior Design",
-        description: "Professional residential interior design services including space planning, 3D visualization, and complete project management",
-        provider: {
-          "@id": "https://nestureinteriors.com/#organization",
+        sameAs: [
+          "https://www.facebook.com/studyabroadvadodara",
+          "https://www.instagram.com/studyabroadvadodara",
+          "https://www.linkedin.com/company/studyabroadvadodara",
+        ],
+        priceRange: "₹₹",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "500",
+          bestRating: "5",
+          worstRating: "1",
         },
-        areaServed: "Bangalore",
-        priceRange: "$$$",
-      },
-      {
-        "@type": "Service",
-        "@id": "https://nestureinteriors.com/#service-commercial",
-        name: "Commercial Interior Design",
-        description: "Expert commercial and office interior design with brand integration and complete installation supervision",
-        provider: {
-          "@id": "https://nestureinteriors.com/#organization",
+        areaServed: [
+          { "@type": "City", name: "Vadodara" },
+          { "@type": "State", name: "Gujarat" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Study Abroad Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Canada Student Visa Assistance",
+                description: "Complete guidance for Canada student visa including SDS stream",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "USA F1 Visa Assistance",
+                description: "Expert guidance for USA F1 student visa applications",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "UK Student Visa",
+                description: "UK Tier 4 student visa assistance with university admissions",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "IELTS Coaching",
+                description: "Expert IELTS coaching with guaranteed band improvement",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Scholarship Guidance",
+                description: "Help students find and apply for international scholarships",
+              },
+            },
+          ],
         },
-        areaServed: "Bangalore",
-        priceRange: "$$$$",
       },
       {
-        "@type": "AggregateRating",
-        "@id": "https://nestureinteriors.com/#rating",
-        ratingValue: "4.9",
-        ratingCount: "150",
-        bestRating: "5",
-        worstRating: "1",
+        "@type": "WebSite",
+        "@id": "https://studyabroadvadodara.in/#website",
+        url: "https://studyabroadvadodara.in",
+        name: "Study Abroad Consultants Vadodara",
+        description: "Best Study Abroad Consultants in Vadodara, Gujarat",
+        publisher: {
+          "@id": "https://studyabroadvadodara.in/#organization",
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://studyabroadvadodara.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://studyabroadvadodara.in/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://studyabroadvadodara.in",
+          },
+        ],
       },
     ],
   }

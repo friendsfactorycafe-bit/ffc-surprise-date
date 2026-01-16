@@ -5,44 +5,44 @@ import { useState } from "react"
 
 const faqs = [
   {
-    question: "What services does Nesture Interiors offer?",
+    question: "What services does Study Abroad Vadodara offer?",
     answer:
-      "Nesture Interiors provides comprehensive interior design services including residential interior design, office design, commercial interiors, space planning, 3D visualization, furniture design, and complete project management for homes, offices, and commercial spaces in Bangalore.",
+      "Study Abroad Vadodara provides comprehensive overseas education consulting services including university selection, visa assistance for Canada, USA, UK, Australia, Germany & more, IELTS/TOEFL/PTE coaching, application documentation, scholarship guidance, and pre-departure orientation for students in Vadodara.",
   },
   {
-    question: "How much does interior design cost in Bangalore?",
+    question: "How much does study abroad consultation cost?",
     answer:
-      "Our pricing is transparent and tailored to your needs. We offer packages starting from ₹99,999 for single room makeovers to custom quotes for luxury commercial projects. All packages include professional consultation and 3D visualization.",
+      "Our consultation fees are transparent and tailored to your needs. We offer free initial consultation, and our complete packages include university shortlisting, visa guidance, and documentation support. Contact us for detailed pricing based on your chosen destination.",
   },
   {
-    question: "Do you provide 3D visualization before execution?",
+    question: "Which countries can I study in through your services?",
     answer:
-      "Yes! We provide advanced 3D visualization and walk-through for all our premium and commercial packages. This helps you see the design before any execution begins, ensuring complete satisfaction.",
+      "We assist students with admissions to universities in Canada, USA, UK, Australia, Germany, Ireland, New Zealand, and other popular study destinations. Each country has different requirements and we guide you through the entire process.",
   },
   {
-    question: "What is your project timeline?",
+    question: "What is the typical timeline for study abroad applications?",
     answer:
-      "Project timelines vary based on project size and complexity. Our basic makeover takes 3 weeks, premium home design takes 6-8 weeks, and commercial projects have customized timelines. We ensure quality without rushing.",
+      "The timeline varies based on the country and intake. Generally, you should start 12-18 months before your intended start date. Visa processing can take 2-8 weeks depending on the country. We help you plan every step to meet deadlines.",
   },
   {
-    question: "Do you handle installation and project management?",
+    question: "Do you provide IELTS coaching?",
     answer:
-      "Absolutely! We provide complete project management, installation supervision, and on-site support. Our team ensures every detail is executed to perfection according to the approved design.",
+      "Yes! We provide expert IELTS, TOEFL, PTE, and GRE coaching with experienced trainers. Our coaching programs are designed to help you achieve your target scores with flexible batch timings and personalized attention.",
   },
   {
-    question: "Are you available for interior design in all areas of Bangalore?",
+    question: "Do you help with visa applications?",
     answer:
-      "Yes, we serve all premium areas of Bangalore including Koramangala, Indiranagar, Whitefield, HSR Layout, Jayanagar, JP Nagar, Marathahalli, Electronic City, and surrounding localities. We also offer services across Karnataka.",
+      "Absolutely! We provide complete visa assistance including document preparation, application filing, interview preparation, and follow-up. Our experienced team has a high success rate for student visa approvals across all major destinations.",
   },
   {
-    question: "Can you design both modern and traditional interiors?",
+    question: "Can you help with scholarships?",
     answer:
-      "Yes, our talented designers specialize in multiple styles including modern, minimalist, traditional, luxury, and fusion designs. We customize every design to match your lifestyle and preferences.",
+      "Yes, we guide students on available scholarships, eligibility criteria, and application processes. Many universities offer merit-based and need-based scholarships, and we help you identify and apply for relevant opportunities.",
   },
   {
-    question: "How do I get started with Nesture Interiors?",
+    question: "How do I get started with Study Abroad Vadodara?",
     answer:
-      "Getting started is easy! Contact us via WhatsApp, phone, or fill our online form. We'll schedule a free consultation to understand your vision, space, and budget, then propose the best design solution for you.",
+      "Getting started is easy! Contact us via WhatsApp, phone, or fill our online form. We'll schedule a free consultation to understand your academic background, career goals, and budget, then create a personalized study abroad plan for you.",
   },
 ]
 
@@ -53,12 +53,12 @@ export function FAQSection() {
     <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-accent font-mono uppercase tracking-wider mb-4">FAQ</p>
+          <p className="text-emerald-600 font-mono uppercase tracking-wider mb-4">FAQ</p>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-            Frequently Asked Questions About Interior Design
+            Frequently Asked Questions About Studying Abroad
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed font-mono">
-            Find answers to common questions about our interior design services in Bangalore
+            Find answers to common questions about our study abroad services in Vadodara
           </p>
         </div>
 
@@ -66,15 +66,15 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-card rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-colors"
+              className="bg-card rounded-lg border border-border overflow-hidden hover:border-emerald-500/50 transition-colors"
             >
               <button
                 onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-primary/5 transition-colors"
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-emerald-500/5 transition-colors"
               >
                 <h3 className="text-lg font-semibold text-foreground">{faq.question}</h3>
                 <ChevronDown
-                  className={`w-5 h-5 text-primary transition-transform flex-shrink-0 ${
+                  className={`w-5 h-5 text-emerald-600 transition-transform flex-shrink-0 ${
                     expandedIndex === index ? "rotate-180" : ""
                   }`}
                 />

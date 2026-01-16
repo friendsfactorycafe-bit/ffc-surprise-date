@@ -34,20 +34,20 @@ export function ContactForm() {
 
     // Construct WhatsApp message
     const message = `
-✨ *INTERIOR DESIGN ENQUIRY* ✨
+🎓 *STUDY ABROAD ENQUIRY* 🎓
 
 • *Full Name:* ${formData.fullName}
 • *Phone Number:* ${formData.phoneNumber}
-• *Property Type:* ${formData.propertyType}
+• *Preferred Country:* ${formData.propertyType}
 • *City:* ${formData.city}
-• *Budget:* ${formData.budget || 'Not specified'}
+• *Study Level:* ${formData.budget || 'Not specified'}
 
 ―――――――――――――
-_Sent via Nesture Interiors Website_
+_Sent via Study Abroad Vadodara Website_
     `.trim()
 
     // Replace with your WhatsApp number (include country code without + sign)
-    const whatsappNumber = "918618080171"
+    const whatsappNumber = "916353583148"
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
     // Open WhatsApp
@@ -62,10 +62,10 @@ _Sent via Nesture Interiors Website_
       <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <p className="text-accent font-mono uppercase tracking-wider mb-2 md:mb-4 text-xs sm:text-sm">Get Your Interior Design Consultation</p>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-balance">Transform Your Space With Professional Design</h2>
+            <p className="text-accent font-mono uppercase tracking-wider mb-2 md:mb-4 text-xs sm:text-sm">Get Your Study Abroad Consultation</p>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-balance">Start Your Global Education Journey</h2>
             <p className="text-sm sm:text-base md:text-xl text-primary-foreground/90 font-mono leading-relaxed max-w-2xl mx-auto">
-              {"Our expert interior designers will create stunning spaces tailored to your style. Fill the form below and we'll connect with you on WhatsApp instantly"}
+              {"Our expert consultants will guide you through university selection, visa applications, and more. Fill the form below and we'll connect with you on WhatsApp instantly"}
             </p>
           </div>
 
@@ -172,10 +172,10 @@ _Sent via Nesture Interiors Website_
                     <h3 className="text-xl font-bold mb-2">Call Us</h3>
                     <p className="text-primary-foreground/80 font-mono mb-2">Available 9 AM - 9 PM</p>
                     <a
-                      href="tel:+918618080171"
+                      href="tel:+916353583148"
                       className="text-lg font-mono text-accent hover:text-secondary transition-colors"
                     >
-                      +91 861 808 0171
+                      +91 6353583148
                     </a>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ _Sent via Nesture Interiors Website_
                     <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
                     <p className="text-primary-foreground/80 font-mono mb-2">Quick response guaranteed</p>
                     <a
-                      href="https://wa.me/918618080171"
+                      href="https://wa.me/916353583148"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-lg font-mono text-accent hover:text-secondary transition-colors"
@@ -205,11 +205,11 @@ _Sent via Nesture Interiors Website_
                 <h3 className="text-xl font-bold mb-4">Why Contact Us?</h3>
                 <ul className="space-y-3">
                   {[
-                    "Free consultation and design guidance",
-                    "Instant quotes on WhatsApp",
+                    "Free consultation and career guidance",
+                    "Instant response on WhatsApp",
                     "Same-day response to all queries",
                     "Flexible appointment scheduling",
-                    "On-site service available across Bangalore",
+                    "Expert guidance for all major countries",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />

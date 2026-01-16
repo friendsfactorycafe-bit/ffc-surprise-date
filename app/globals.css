@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Modern aesthetic color palette for interior design studio */
+/* Modern color palette for Study Abroad Consultants */
 :root {
   /* Clean white backgrounds */
   --background: oklch(0.99 0.002 0);
@@ -97,7 +97,7 @@
   --sidebar-ring: oklch(0.6 0.18 200);
 }
 
-/* Updated fonts for elegant wedding aesthetic */
+/* Updated fonts for Study Abroad aesthetic */
 @theme inline {
   --font-sans: "Playfair Display", "serif";
   --font-mono: "Inter", "sans-serif";
