@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Playfair_Display, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import "./globals.css"
 
 const playfairDisplay = Playfair_Display({
@@ -243,6 +244,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
+        <GoogleAnalytics gaId="G-CYW790YNQ4" />
       </body>
     </html>
   )
