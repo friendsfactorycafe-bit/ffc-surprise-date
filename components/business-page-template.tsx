@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { getTestimonialsByArea, getRandomTestimonials, Testimonial } from "@/lib/testimonials";
+import { getAreaUniqueContent } from "@/lib/area-content";
 
 interface BusinessPageTemplateProps {
   business: BusinessConfig;
@@ -42,6 +43,9 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
   const areaName = getAreaDisplayName(area);
   const gradientClass = business.colors.gradient;
   
+  // Get unique area content
+  const uniqueContent = getAreaUniqueContent(area);
+  
   // Get testimonials - prioritize area-specific ones, fill with random
   const areaTestimonials = getTestimonialsByArea(areaName);
   const testimonials = areaTestimonials.length >= 6 
@@ -56,8 +60,8 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
       <BusinessHeroSlider 
         business={business} 
         area={area} 
-        heroTitle={content.heroTitle}
-        heroSubtitle={content.heroSubtitle}
+        heroTitle={uniqueContent.heroTitle}
+        heroSubtitle={uniqueContent.heroSubtitle}
       />
 
       {/* Trust Badges */}
@@ -112,10 +116,12 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                About Our {business.name} Services in {areaName}
+                {uniqueContent.aboutTitle}
               </h2>
-              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                <p className="whitespace-pre-line">{content.aboutContent}</p>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+                <p>{uniqueContent.aboutParagraph1}</p>
+                <p>{uniqueContent.aboutParagraph2}</p>
+                <p>{uniqueContent.aboutParagraph3}</p>
               </div>
             </div>
             <div className="order-1 md:order-2 relative h-80 md:h-96">
@@ -135,10 +141,10 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             <Plane className="inline-block w-8 h-8 mr-2 text-emerald-600" />
-            Popular Study Destinations
+            {uniqueContent.sectionHeadlines.destinations}
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Explore top countries for higher education with expert guidance from our {areaName} office
+            {uniqueContent.sectionHeadlines.destinationsSubtitle}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {destinations.map((dest) => (
@@ -165,14 +171,14 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
       <section id="services" className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Our Study Abroad Services in {areaName}
+            {uniqueContent.sectionHeadlines.services}
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Comprehensive study abroad services tailored to help you achieve your international education goals
+            {uniqueContent.sectionHeadlines.servicesSubtitle}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {content.detailedServices.map((service, index) => (
+            {uniqueContent.services.map((service, index) => (
               <div
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border-l-4 border-emerald-500"
@@ -252,9 +258,9 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
       {/* Testimonials with Photos */}
       <section className="py-16 md:py-20 bg-emerald-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">What Our Students Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">{uniqueContent.sectionHeadlines.testimonials}</h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Real feedback from students who achieved their study abroad dreams with our guidance
+            {uniqueContent.sectionHeadlines.testimonialsSubtitle}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {testimonials.map((testimonial, i) => (
@@ -296,10 +302,12 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Study Abroad Consultants in {areaName}
+                  {uniqueContent.sectionHeadlines.contact}
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                  <p className="whitespace-pre-line">{content.areaSpecificContent}</p>
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+                  <p>{uniqueContent.uniqueIntro}</p>
+                  <p>{uniqueContent.whyStudyAbroad}</p>
+                  <p>{uniqueContent.localAdvantage}</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -319,23 +327,34 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
         </div>
       </section>
 
-      {/* Detailed Guide - Unique Content Section */}
+      {/* Success Story Highlight */}
+      <section className="py-16 md:py-20 bg-emerald-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Success Story from {areaName}</h2>
+            <p className="text-xl leading-relaxed mb-8 opacity-90">{uniqueContent.successStory}</p>
+            <p className="text-lg font-semibold">{uniqueContent.callToAction}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section with Unique Questions */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              Complete Guide to Studying Abroad from {areaName}
+              {uniqueContent.sectionHeadlines.faq}
             </h2>
-            <div className="prose prose-lg max-w-none text-gray-700">
-              <div 
-                className="space-y-6 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-gray-800 [&>h3]:mt-6 [&>h3]:mb-3 [&>h4]:text-lg [&>h4]:font-semibold [&>h4]:text-emerald-700 [&>h4]:mt-4 [&>h4]:mb-2 [&>p]:leading-relaxed [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2"
-                dangerouslySetInnerHTML={{ __html: content.longFormContent.replace(/\n/g, '<br/>').replace(/#{2,4}\s/g, (match) => {
-                  if (match === '## ') return '<h2>';
-                  if (match === '### ') return '<h3>';
-                  if (match === '#### ') return '<h4>';
-                  return match;
-                }) }}
-              />
+            <div className="space-y-4">
+              {uniqueContent.faqs.map((faq, index) => (
+                <details key={index} className="bg-gray-50 rounded-xl p-6 group">
+                  <summary className="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                    {faq.question}
+                    <span className="text-emerald-600 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-4 text-gray-700 leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </div>
@@ -361,28 +380,11 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
         </div>
       </section>
 
-      {/* Local Landmarks Near Us */}
-      {content.localLandmarks && (
-        <section className="py-12 bg-gray-100">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-xl font-bold mb-4 text-gray-800">
-                <MapPin className="inline-block w-5 h-5 mr-2 text-emerald-600" />
-                Landmarks Near Our {areaName} Service Area
-              </h3>
-              <p className="text-gray-600">
-                We serve students near {content.localLandmarks}
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Our Process */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Your Journey to Study Abroad
+            {uniqueContent.sectionHeadlines.process}
           </h2>
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -402,31 +404,6 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
 
       {/* Gallery Section */}
       <BusinessGallerySection businessName={business.name} accentColor="emerald" />
-
-      {/* FAQ Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-4">
-              {content.faqItems.map((faq, index) => (
-                <details
-                  key={index}
-                  className="bg-white p-6 rounded-xl shadow-md group"
-                >
-                  <summary className="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
-                    {faq.question}
-                    <span className="text-2xl group-open:rotate-45 transition-transform">+</span>
-                  </summary>
-                  <p className="mt-4 text-gray-600 leading-relaxed">{faq.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Related Services / Keywords */}
       <section className="py-16 md:py-20">

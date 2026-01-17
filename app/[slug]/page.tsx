@@ -3,6 +3,7 @@ import { businessKeywords, getKeywordBySlug, studyAbroadKeywords } from "@/lib/k
 import { getBusinessContent, getStudyAbroadContent } from "@/lib/content-generator";
 import { generatePageSchema, generateKeywordPageSchema } from "@/lib/seo-schema";
 import { getTestimonialsByArea, getRandomTestimonials } from "@/lib/testimonials";
+import { getAreaUniqueContent } from "@/lib/area-content";
 import { BusinessPageTemplate } from "@/components/business-page-template";
 import { KeywordPageTemplate } from "@/components/keyword-page-template";
 import { notFound } from "next/navigation";
@@ -42,12 +43,12 @@ export async function generateMetadata({
   const keywordConfig = !isArea ? getKeywordBySlug(business.slug, slug) : null;
   
   if (isArea) {
-    // Area page metadata - use generated content
+    // Area page metadata - use unique content
     const areaName = getAreaDisplayName(slug);
-    const content = getStudyAbroadContent(slug);
+    const uniqueContent = getAreaUniqueContent(slug);
     return {
-      title: content.metaTitle,
-      description: content.metaDescription,
+      title: uniqueContent.metaTitle,
+      description: uniqueContent.metaDescription,
       keywords: [
         `Study Abroad Consultants in ${areaName}`,
         `Overseas Education ${areaName} Vadodara`,
@@ -66,8 +67,8 @@ export async function generateMetadata({
         canonical: `${baseUrl}/${slug}`,
       },
       openGraph: {
-        title: content.metaTitle,
-        description: content.metaDescription,
+        title: uniqueContent.metaTitle,
+        description: uniqueContent.metaDescription,
         url: `${baseUrl}/${slug}`,
         type: "website",
         locale: "en_IN",
@@ -83,8 +84,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: content.metaTitle,
-        description: content.metaDescription,
+        title: uniqueContent.metaTitle,
+        description: uniqueContent.metaDescription,
         images: [`${baseUrl}/og-image.svg`],
       },
     };
