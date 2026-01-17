@@ -3,13 +3,40 @@
 import Link from "next/link";
 import { businesses, getAreaDisplayName } from "@/lib/business-config";
 import { studyAbroadKeywords } from "@/lib/keywords-config";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Linkedin, Youtube, MapPinned, Search } from "lucide-react";
+import { getCountrySlugs, countries } from "@/lib/country-content";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Linkedin, Youtube, MapPinned, Search, Globe, GraduationCap } from "lucide-react";
 
 const studyAbroadBusiness = businesses[0];
 
 export function MegaFooter() {
   return (
     <footer className="bg-gray-900 text-white">
+      {/* Country Pages Navigation */}
+      <div className="border-b border-gray-700">
+        <div className="container mx-auto px-4 py-8">
+          <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+            <Globe className="w-6 h-6 text-emerald-400" />
+            Study Abroad Destinations
+          </h2>
+          
+          <div className="max-w-5xl mx-auto">
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm">
+              {countries.map((country) => (
+                <li key={country.slug}>
+                  <Link
+                    href={`/${country.slug}`}
+                    className="text-gray-400 hover:text-white transition-colors block py-1 flex items-center gap-2"
+                  >
+                    <span>{country.flag}</span>
+                    Study in {country.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Area Pages Navigation */}
       <div className="border-b border-gray-700">
         <div className="container mx-auto px-4 py-8">
