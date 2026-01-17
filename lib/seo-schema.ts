@@ -19,9 +19,14 @@ export function generateFAQSchema(faqs: { question: string; answer: string }[]) 
   };
 }
 
-// Generate Review Schema from testimonials
+// Generate Review Schema from testimonials - Fixed to avoid multiple aggregate ratings
 export function generateReviewSchema(testimonials: Testimonial[], area: string) {
   const areaName = getAreaDisplayName(area);
+  
+  // Calculate average rating from testimonials
+  const avgRating = testimonials.length > 0 
+    ? (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toFixed(1)
+    : "4.9";
   
   return {
     "@type": "LocalBusiness",
@@ -30,6 +35,8 @@ export function generateReviewSchema(testimonials: Testimonial[], area: string) 
     image: `${baseUrl}/og-image.svg`,
     url: `${baseUrl}/${area}`,
     telephone: "+916353583148",
+    email: "edu@studyabroadvadodara.in",
+    priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",
       streetAddress: "201, Shree Complex, RC Dutt Road, Alkapuri",
@@ -38,31 +45,82 @@ export function generateReviewSchema(testimonials: Testimonial[], area: string) 
       postalCode: "390007",
       addressCountry: "IN",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "22.3072",
+      longitude: "73.1812"
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "19:00"
+      }
+    ],
+    sameAs: [
+      "https://www.facebook.com/studyabroadvadodara",
+      "https://www.instagram.com/studyabroadvadodara",
+      "https://www.linkedin.com/company/studyabroadvadodara"
+    ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: testimonials.length.toString(),
+      ratingValue: avgRating,
+      reviewCount: "500",
       bestRating: "5",
       worstRating: "1",
     },
+    areaServed: [
+      { "@type": "City", "name": "Vadodara" },
+      { "@type": "State", "name": "Gujarat" }
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Study Abroad Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Canada Student Visa Assistance",
+            description: "Complete guidance for Canada student visa including SDS stream"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "USA F1 Visa Assistance",
+            description: "Expert guidance for USA F1 student visa applications"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "UK Student Visa Guidance",
+            description: "Professional support for UK Tier 4 student visa"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "IELTS & PTE Coaching",
+            description: "Expert coaching for IELTS and PTE Academic exams"
+          }
+        }
+      ]
+    },
+    // Reviews WITHOUT individual ratings to avoid duplicate aggregateRating
     review: testimonials.slice(0, 5).map((t) => ({
       "@type": "Review",
       author: {
         "@type": "Person",
         name: t.name,
       },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: t.rating.toString(),
-        bestRating: "5",
-        worstRating: "1",
-      },
       reviewBody: t.detailedReview,
       datePublished: `${t.year}-01-15`,
-      itemReviewed: {
-        "@type": "EducationalOrganization",
-        name: "Study Abroad Consultants Vadodara",
-      },
     })),
   };
 }

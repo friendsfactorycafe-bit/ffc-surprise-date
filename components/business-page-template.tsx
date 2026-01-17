@@ -429,6 +429,58 @@ export function BusinessPageTemplate({ business, area, content }: BusinessPageTe
         </div>
       </section>
 
+      {/* SEO Rich Content Section - Natural Keywords */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              Complete Overseas Education Services in {areaName}, Vadodara
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              As the leading <strong>study abroad consultants in {areaName}</strong>, we provide comprehensive 
+              guidance for students aspiring to pursue higher education overseas. Our expertise spans 
+              <strong> Canada student visa</strong>, <strong>USA F1 visa</strong>, <strong>UK Tier 4 visa</strong>, 
+              and <strong>Australia student visa</strong> applications with a remarkable 98% success rate.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Whether you're looking for <strong>IELTS coaching near {areaName}</strong> or need help with 
+              <strong> PTE preparation</strong>, our experienced trainers deliver personalized coaching. 
+              We also offer <strong>GRE and GMAT preparation</strong> for students targeting top universities 
+              in USA and other countries.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Our <strong>overseas education consultants</strong> specialize in university admissions for 
+              MBA abroad, MS in USA, engineering programs in Germany, medical courses in UK, and 
+              management studies in Canada. We've helped thousands of students from {areaName} achieve 
+              their dreams of <strong>studying abroad</strong>.
+            </p>
+            <div className="bg-emerald-50 p-6 rounded-xl mt-6">
+              <h3 className="text-xl font-bold mb-4">Our Study Abroad Services Include:</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-gray-700">
+                <li>✓ Free career counseling & university selection</li>
+                <li>✓ Canada SDS visa processing</li>
+                <li>✓ USA F1 visa interview preparation</li>
+                <li>✓ UK student visa documentation</li>
+                <li>✓ Australia GTE statement guidance</li>
+                <li>✓ Germany blocked account assistance</li>
+                <li>✓ IELTS & PTE coaching (offline/online)</li>
+                <li>✓ Education loan assistance</li>
+                <li>✓ Scholarship guidance & applications</li>
+                <li>✓ Statement of Purpose (SOP) writing</li>
+                <li>✓ Letter of Recommendation (LOR) help</li>
+                <li>✓ Pre-departure orientation</li>
+              </ul>
+            </div>
+            <p className="text-gray-700 leading-relaxed mt-6">
+              Located conveniently on RC Dutt Road in Alkapuri, we serve students from {areaName}, 
+              Fatehgunj, Manjalpur, Gotri, and all areas of Vadodara. Contact us today for a 
+              <strong> free study abroad consultation</strong> and take the first step towards your 
+              international education journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Full Width CTA Banner */}
       <section className="relative py-20 overflow-hidden">
         <Image

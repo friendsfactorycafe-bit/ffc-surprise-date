@@ -417,6 +417,49 @@ export function CountryPageTemplate({ country }: CountryPageTemplateProps) {
         </div>
       </section>
 
+      {/* SEO Rich Content Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              {country.name} Study Abroad Consultants in Vadodara
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Looking for the <strong>best {country.name} study visa consultants in Vadodara</strong>? 
+              Our expert team at Study Abroad Vadodara has helped thousands of students from Gujarat 
+              secure admissions and student visas for {country.name}. We specialize in 
+              <strong> {country.name} student visa applications</strong>, university admissions, 
+              scholarship guidance, and complete documentation support.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Whether you're interested in pursuing <strong>MS in {country.name}</strong>, 
+              <strong> MBA in {country.name}</strong>, undergraduate studies, or PhD programs, 
+              our experienced <strong>overseas education consultants</strong> provide personalized 
+              guidance tailored to your academic profile and career goals.
+            </p>
+            <div className="bg-white p-6 rounded-xl shadow-sm mt-6">
+              <h3 className="text-lg font-bold mb-4">Why Choose Us for {country.name} Education?</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-muted-foreground text-sm">
+                <li>✓ {country.visaInfo.successRate} visa success rate</li>
+                <li>✓ Free university shortlisting</li>
+                <li>✓ Complete visa documentation</li>
+                <li>✓ IELTS/PTE coaching available</li>
+                <li>✓ Education loan assistance</li>
+                <li>✓ Scholarship applications</li>
+                <li>✓ SOP & LOR guidance</li>
+                <li>✓ Pre-departure orientation</li>
+              </ul>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mt-6 text-sm">
+              Visit our office at RC Dutt Road, Alkapuri, Vadodara or call +91 6353583148 for a 
+              <strong> free {country.name} study abroad consultation</strong>. We serve students from 
+              Alkapuri, Fatehgunj, Manjalpur, Gotri, Sama, Akota, Karelibaug, and all areas of Vadodara 
+              and Gujarat.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Inquiry Form */}
       <section id="inquiry-form" className="py-16 bg-gradient-to-br from-blue-600 to-indigo-800 text-white">
         <div className="container mx-auto px-4">
