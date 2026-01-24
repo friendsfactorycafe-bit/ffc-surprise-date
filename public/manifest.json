@@ -1,11 +1,11 @@
 {
-  "name": "Study Abroad Vadodara",
-  "short_name": "StudyAbroad",
-  "description": "Best Study Abroad Consultants in Vadodara - Expert guidance for Canada, USA, UK, Australia",
+  "name": "Romantic Celebrations - Couples Only",
+  "short_name": "RomanticCafe",
+  "description": "Premium romantic celebration services for couples in Surat and Vadodara - Birthday Surprises, Candlelight Dinners, Anniversary Celebrations",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#059669",
+  "theme_color": "#EC4899",
   "icons": [
     {
       "src": "/icon.svg",

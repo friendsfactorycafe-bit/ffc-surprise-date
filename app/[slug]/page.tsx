@@ -1,44 +1,66 @@
-import { businesses, getBusinessBySlug, getAreaDisplayName, vadodaraAreas } from "@/lib/business-config";
-import { businessKeywords, getKeywordBySlug, studyAbroadKeywords } from "@/lib/keywords-config";
-import { getBusinessContent, getStudyAbroadContent } from "@/lib/content-generator";
-import { generatePageSchema, generateKeywordPageSchema } from "@/lib/seo-schema";
-import { getTestimonialsByArea, getRandomTestimonials } from "@/lib/testimonials";
-import { getAreaUniqueContent } from "@/lib/area-content";
-import { getCountryBySlug, getCountrySlugs } from "@/lib/country-content";
-import { BusinessPageTemplate } from "@/components/business-page-template";
-import { KeywordPageTemplate } from "@/components/keyword-page-template";
-import { CountryPageTemplate } from "@/components/country-page-template";
-import { notFound } from "next/navigation";
+/**
+ * DYNAMIC [SLUG] PAGE
+ * Handles all keyword and area pages for Friends Factory Cafe
+ */
+
 import { Metadata } from "next";
-import Script from "next/script";
+import { notFound } from "next/navigation";
+import FFCAreaPage from "@/components/ffc-area-page";
+import FFCKeywordPage from "@/components/ffc-keyword-page";
+import { 
+  vadodaraAreas, 
+  getAreaBySlug, 
+  serviceCategories,
+  getServiceBySlug,
+  ServiceKeyword,
+  ServiceCategory
+} from "@/lib/ffc-config";
 
-const business = businesses[0]; // Study Abroad Consultants
-const baseUrl = "https://studyabroadvadodara.in";
+// Get all keyword slugs from all service categories
+function getAllKeywords(): { slug: string; keyword: ServiceKeyword; service: ServiceCategory }[] {
+  const keywords: { slug: string; keyword: ServiceKeyword; service: ServiceCategory }[] = [];
+  
+  serviceCategories.forEach((service) => {
+    service.keywords.forEach((keyword) => {
+      keywords.push({
+        slug: keyword.slug,
+        keyword,
+        service
+      });
+    });
+  });
+  
+  return keywords;
+}
 
-// Generate static params for all area + keyword + country combinations
+// Find keyword by slug
+function findKeywordBySlug(slug: string): { keyword: ServiceKeyword; service: ServiceCategory } | undefined {
+  const allKeywords = getAllKeywords();
+  const found = allKeywords.find(k => k.slug === slug);
+  if (found) {
+    return { keyword: found.keyword, service: found.service };
+  }
+  return undefined;
+}
+
+// Generate static params for all possible routes
 export async function generateStaticParams() {
   const params: { slug: string }[] = [];
   
-  // Add area pages
-  business.areas.forEach((area) => {
-    params.push({ slug: area });
+  // Add all area pages
+  vadodaraAreas.forEach((area) => {
+    params.push({ slug: area.slug });
   });
   
-  // Add keyword pages
-  studyAbroadKeywords.forEach((keyword) => {
-    params.push({ slug: keyword.slug });
-  });
-  
-  // Add country pages
-  const countrySlugs = getCountrySlugs();
-  countrySlugs.forEach((slug) => {
+  // Add all keyword pages from all services
+  getAllKeywords().forEach(({ slug }) => {
     params.push({ slug });
   });
   
   return params;
 }
 
-// Generate metadata for SEO
+// Generate metadata
 export async function generateMetadata({
   params,
 }: {
@@ -46,249 +68,105 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   
-  // Check if slug is an area, a keyword, or a country
-  const isArea = vadodaraAreas.includes(slug);
-  const countryContent = getCountryBySlug(slug);
-  const keywordConfig = !isArea && !countryContent ? getKeywordBySlug(business.slug, slug) : null;
-  
-  if (isArea) {
-    // Area page metadata - use unique content
-    const areaName = getAreaDisplayName(slug);
-    const uniqueContent = getAreaUniqueContent(slug);
+  // Check if it's an area page
+  const area = getAreaBySlug(slug);
+  if (area) {
+    const areaTitle = `Romantic Celebration in ${area.name}, Vadodara | Friends Factory Cafe`;
+    const areaDescription = `Book romantic celebrations, candlelight dinners, birthday surprises & anniversary parties in ${area.name}, Vadodara at Friends Factory Cafe. Private rooftop venue with stunning setups. Call +91 74878 88730.`;
+    
     return {
-      title: uniqueContent.metaTitle,
-      description: uniqueContent.metaDescription,
+      title: areaTitle,
+      description: areaDescription,
       keywords: [
-        `Study Abroad Consultants in ${areaName}`,
-        `Overseas Education ${areaName} Vadodara`,
-        `Best Study Abroad Consultants ${areaName}`,
-        `Canada Student Visa ${areaName}`,
-        `USA Student Visa ${areaName}`,
-        `UK Student Visa ${areaName}`,
-        `Australia Student Visa ${areaName}`,
-        `IELTS Coaching ${areaName}`,
-        `Education Consultancy ${areaName}`,
-        `Study in Canada from ${areaName}`,
-        `Study in USA from ${areaName}`,
-        `Visa Consultants ${areaName} Vadodara`,
+        `romantic celebration ${area.name}`,
+        `candlelight dinner ${area.name}`,
+        `birthday surprise ${area.name}`,
+        `friends factory cafe ${area.name}`,
+        `couple cafe ${area.name} vadodara`,
+        `anniversary dinner ${area.name}`,
+        `romantic restaurant ${area.name}`,
+        `private dining ${area.name}`
       ],
       alternates: {
-        canonical: `${baseUrl}/${slug}`,
+        canonical: `https://friendsfactorycafe.com/areas/${area.slug}`,
       },
       openGraph: {
-        title: uniqueContent.metaTitle,
-        description: uniqueContent.metaDescription,
-        url: `${baseUrl}/${slug}`,
+        title: areaTitle,
+        description: `Premium romantic celebration services for couples in ${area.name}, Vadodara. Birthday surprises, candlelight dinners & more!`,
+        url: `https://friendsfactorycafe.com/areas/${area.slug}`,
         type: "website",
         locale: "en_IN",
-        siteName: "Study Abroad Consultants Vadodara",
-        images: [
-          {
-            url: `${baseUrl}/og-image.svg`,
-            width: 1200,
-            height: 630,
-            alt: `Study Abroad Consultants in ${areaName}, Vadodara`,
-          },
-        ],
+        siteName: "Friends Factory Cafe",
       },
       twitter: {
         card: "summary_large_image",
-        title: uniqueContent.metaTitle,
-        description: uniqueContent.metaDescription,
-        images: [`${baseUrl}/og-image.svg`],
-      },
-    };
-  } else if (countryContent) {
-    // Country page metadata
-    return {
-      title: countryContent.metaTitle,
-      description: countryContent.metaDescription,
-      keywords: [
-        `Study in ${countryContent.name} from Vadodara`,
-        `${countryContent.name} Student Visa Vadodara`,
-        `${countryContent.name} Education Consultants`,
-        `Best ${countryContent.name} Study Consultants Vadodara`,
-        `${countryContent.name} Universities Admission`,
-        `${countryContent.name} Study Abroad`,
-        "Study Abroad Consultants Vadodara",
-        "Overseas Education Vadodara",
-      ],
-      alternates: {
-        canonical: `${baseUrl}/${slug}`,
-      },
-      openGraph: {
-        title: countryContent.metaTitle,
-        description: countryContent.metaDescription,
-        url: `${baseUrl}/${slug}`,
-        type: "website",
-        locale: "en_IN",
-        siteName: "Study Abroad Consultants Vadodara",
-        images: [
-          {
-            url: `${baseUrl}/og-image.svg`,
-            width: 1200,
-            height: 630,
-            alt: `${countryContent.heroTitle} - Study Abroad Vadodara`,
-          },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: countryContent.metaTitle,
-        description: countryContent.metaDescription,
-        images: [`${baseUrl}/og-image.svg`],
-      },
-    };
-  } else if (keywordConfig) {
-    // Keyword page metadata
-    return {
-      title: `${keywordConfig.title} | Best Study Abroad Consultants Vadodara`,
-      description: keywordConfig.metaDescription,
-      keywords: [
-        keywordConfig.title,
-        `${keywordConfig.title} Vadodara`,
-        `Best ${keywordConfig.title}`,
-        "Study Abroad Consultants Vadodara",
-        "Overseas Education Vadodara",
-        "Canada Student Visa Vadodara",
-        "USA Student Visa Vadodara",
-      ],
-      alternates: {
-        canonical: `${baseUrl}/${keywordConfig.slug}`,
-      },
-      openGraph: {
-        title: `${keywordConfig.title} | Study Abroad Vadodara`,
-        description: keywordConfig.metaDescription,
-        url: `${baseUrl}/${keywordConfig.slug}`,
-        type: "website",
-        locale: "en_IN",
-        siteName: "Study Abroad Consultants Vadodara",
-        images: [
-          {
-            url: `${baseUrl}/og-image.svg`,
-            width: 1200,
-            height: 630,
-            alt: keywordConfig.title,
-          },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: keywordConfig.title,
-        description: keywordConfig.metaDescription,
-        images: [`${baseUrl}/og-image.svg`],
+        title: `Romantic Celebrations in ${area.name} | Friends Factory Cafe`,
+        description: `Book romantic celebrations in ${area.name}, Vadodara.`,
       },
     };
   }
   
-  return { title: "Page Not Found" };
+  // Check if it's a keyword page
+  const keywordData = findKeywordBySlug(slug);
+  if (keywordData) {
+    const keywordTitle = keywordData.keyword.metaTitle;
+    const keywordDescription = keywordData.keyword.metaDescription;
+    
+    return {
+      title: keywordTitle,
+      description: keywordDescription,
+      keywords: [
+        keywordData.keyword.title.toLowerCase(),
+        `${keywordData.keyword.title.toLowerCase()} vadodara`,
+        `${keywordData.service.name.toLowerCase()} vadodara`,
+        `friends factory cafe ${keywordData.keyword.title.toLowerCase()}`,
+        `best ${keywordData.keyword.title.toLowerCase()} vadodara`,
+        `${keywordData.service.name.toLowerCase()} near me vadodara`
+      ],
+      alternates: {
+        canonical: `https://friendsfactorycafe.com/${keywordData.keyword.slug}`,
+      },
+      openGraph: {
+        title: keywordTitle,
+        description: keywordDescription,
+        url: `https://friendsfactorycafe.com/${keywordData.keyword.slug}`,
+        type: "website",
+        locale: "en_IN",
+        siteName: "Friends Factory Cafe",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: keywordTitle,
+        description: keywordDescription,
+      },
+    };
+  }
+  
+  return {
+    title: "Page Not Found",
+  };
 }
 
-export default async function DynamicPage({
+// Main page component
+export default async function SlugPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   
-  // Check if slug is an area, a keyword, or a country
-  const isArea = vadodaraAreas.includes(slug);
-  const countryContent = getCountryBySlug(slug);
-  const keywordConfig = !isArea && !countryContent ? getKeywordBySlug(business.slug, slug) : null;
-  
-  if (isArea) {
-    // Render area page with schema
-    const content = getBusinessContent(business.slug, slug);
-    const areaName = getAreaDisplayName(slug);
-    const areaTestimonials = getTestimonialsByArea(areaName);
-    const testimonials = areaTestimonials.length >= 5 
-      ? areaTestimonials 
-      : [...areaTestimonials, ...getRandomTestimonials(5 - areaTestimonials.length)];
-    const schema = generatePageSchema(slug, content.faqItems, testimonials);
-    
-    return (
-      <>
-        <Script
-          id={`schema-${slug}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-        <BusinessPageTemplate business={business} area={slug} content={content} />
-      </>
-    );
-  } else if (countryContent) {
-    // Render country page with schema
-    const countrySchema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebPage",
-          "@id": `https://studyabroadvadodara.in/${slug}`,
-          "url": `https://studyabroadvadodara.in/${slug}`,
-          "name": countryContent.metaTitle,
-          "description": countryContent.metaDescription,
-          "isPartOf": {
-            "@type": "WebSite",
-            "name": "Study Abroad Consultants Vadodara",
-            "url": "https://studyabroadvadodara.in"
-          }
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Study Abroad Consultants Vadodara",
-          "description": `Expert guidance for studying in ${countryContent.name} from Vadodara`,
-          "url": "https://studyabroadvadodara.in",
-          "telephone": "+916353583148",
-          "email": "edu@studyabroadvadodara.in",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "201 Shree Complex, RC Dutt Road",
-            "addressLocality": "Alkapuri, Vadodara",
-            "addressRegion": "Gujarat",
-            "postalCode": "390007",
-            "addressCountry": "IN"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": countryContent.faqs.map(faq => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.answer
-            }
-          }))
-        }
-      ]
-    };
-    
-    return (
-      <>
-        <Script
-          id={`schema-${slug}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(countrySchema) }}
-        />
-        <CountryPageTemplate country={countryContent} />
-      </>
-    );
-  } else if (keywordConfig) {
-    // Render keyword page with schema
-    const content = getBusinessContent(business.slug, "vadodara");
-    const schema = generateKeywordPageSchema(keywordConfig, content.faqItems);
-    
-    return (
-      <>
-        <Script
-          id={`schema-${keywordConfig.slug}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-        <KeywordPageTemplate business={business} keyword={keywordConfig} content={content} />
-      </>
-    );
+  // Check if it's an area page
+  const area = getAreaBySlug(slug);
+  if (area) {
+    return <FFCAreaPage area={area} />;
   }
   
+  // Check if it's a keyword page
+  const keywordData = findKeywordBySlug(slug);
+  if (keywordData) {
+    return <FFCKeywordPage service={keywordData.service} keyword={keywordData.keyword} />;
+  }
+  
+  // Not found
   notFound();
 }

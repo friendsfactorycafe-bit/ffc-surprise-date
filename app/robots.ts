@@ -1,63 +1,32 @@
-import { MetadataRoute } from 'next'
+/**
+ * ROBOTS.TXT FOR FRIENDS FACTORY CAFE
+ * SEO-optimized robots configuration
+ */
+
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://studyabroadvadodara.in'
-
+  const baseUrl = "https://friendsfactorycafe.com";
+  
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/leads/',
-          '/_next/',
-          '/private/',
-          '/*.json$',
-        ],
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
       },
       {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: ['/api/', '/leads/'],
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: ["/api/", "/admin/"],
       },
       {
-        userAgent: 'Googlebot-Image',
-        allow: '/images/',
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: '/',
-        disallow: ['/api/', '/leads/'],
-      },
-      {
-        userAgent: 'Slurp',
-        allow: '/',
-        disallow: ['/api/', '/leads/'],
-      },
-      {
-        userAgent: 'DuckDuckBot',
-        allow: '/',
-        disallow: ['/api/', '/leads/'],
-      },
-      {
-        userAgent: 'facebookexternalhit',
-        allow: '/',
-      },
-      {
-        userAgent: 'LinkedInBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Twitterbot',
-        allow: '/',
-      },
-      {
-        userAgent: 'WhatsApp',
-        allow: '/',
+        userAgent: "Bingbot",
+        allow: "/",
+        disallow: ["/api/", "/admin/"],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
-  }
+  };
 }

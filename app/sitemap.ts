@@ -1,51 +1,106 @@
-import { MetadataRoute } from 'next'
-import { vadodaraAreas } from '@/lib/business-config'
-import { studyAbroadKeywords } from '@/lib/keywords-config'
-import { getCountrySlugs, countries } from '@/lib/country-content'
+/**
+ * FRIENDS FACTORY CAFE - SITEMAP GENERATOR
+ * Generates comprehensive sitemap for all pages including:
+ * - Service pages
+ * - Keyword pages (105+ from all service categories)
+ * - Area pages (40 Vadodara areas)
+ * - Blog posts
+ * - Static pages
+ */
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://studyabroadvadodara.in'
-  const currentDate = new Date()
+import { MetadataRoute } from "next";
+import { 
+  serviceCategories, 
+  vadodaraAreas, 
+  packages,
+  blogPosts
+} from "@/lib/ffc-config";
 
-  // Main pages (highest priority)
-  const mainPages: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-  ]
-
-  // Country destination pages (very high priority - main service pages)
-  const countryPages: MetadataRoute.Sitemap = countries.map((country) => ({
-    url: `${baseUrl}/${country.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.95,
-  }))
-
-  // Area pages (high priority - local SEO for Vadodara)
-  const areaPages: MetadataRoute.Sitemap = vadodaraAreas.map((area) => ({
-    url: `${baseUrl}/${area}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }))
-
-  // Keyword/Service pages (medium-high priority - targeted SEO)
-  const keywordPages: MetadataRoute.Sitemap = studyAbroadKeywords.map((keyword) => ({
-    url: `${baseUrl}/${keyword.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.85,
-  }))
-
-  // Combine all pages in order of priority
-  return [
-    ...mainPages,
-    ...countryPages,
-    ...areaPages,
-    ...keywordPages,
-  ]
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = "https://friendsfactorycafe.com";
+  
+  const entries: MetadataRoute.Sitemap = [];
+  
+  // Home page - highest priority
+  entries.push({
+    url: baseUrl,
+    lastModified: new Date(),
+    changeFrequency: "daily",
+    priority: 1.0,
+  });
+  
+  // Static pages
+  const staticPages = [
+    '/about',
+    '/contact',
+    '/menu',
+    '/packages',
+    '/services',
+    '/virtual-tour',
+    '/areas',
+    '/blog',
+  ];
+  
+  staticPages.forEach((page) => {
+    entries.push({
+      url: `${baseUrl}${page}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  });
+  
+  // Package detail pages
+  packages.forEach((pkg) => {
+    entries.push({
+      url: `${baseUrl}/packages/${pkg.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    });
+  });
+  
+  // Service category pages
+  serviceCategories.forEach((service) => {
+    entries.push({
+      url: `${baseUrl}/services/${service.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+  });
+  
+  // All keyword pages from service categories - high priority for SEO
+  serviceCategories.forEach((service) => {
+    service.keywords.forEach((keyword) => {
+      entries.push({
+        url: `${baseUrl}/${keyword.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.85,
+      });
+    });
+  });
+  
+  // Area pages - medium-high priority
+  vadodaraAreas.forEach((area) => {
+    entries.push({
+      url: `${baseUrl}/areas/${area.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  });
+  
+  // Blog posts
+  blogPosts.forEach((post) => {
+    entries.push({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+  });
+  
+  return entries;
 }
