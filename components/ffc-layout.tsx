@@ -125,19 +125,7 @@ export function FFCHeader() {
                       ))}
                     </div>
                     
-                    <div className="mt-6 pt-6 border-t">
-                      <p className="px-4 text-sm font-medium text-gray-500 mb-2">Services</p>
-                      {serviceLinks.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
+
                   </nav>
                   
                   <div className="border-t py-4">

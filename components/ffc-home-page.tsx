@@ -347,8 +347,8 @@ export default function FFCHomePage() {
   
   // Hero slider images
   const heroSlides = [
-    { src: '/images/hero-slider/slide1.png', alt: 'Romantic Candlelight Dinner Setup at Friends Factory Cafe Vadodara' },
-    { src: '/images/hero-slider/slide2.png', alt: 'Rooftop Celebration Setup with Fairy Lights Vadodara' },
+    { src: '/images/hero-slider/Slide1.png', alt: 'Romantic Candlelight Dinner Setup at Friends Factory Cafe Vadodara' },
+    { src: '/images/hero-slider/Slide2.png', alt: 'Rooftop Celebration Setup with Fairy Lights Vadodara' },
   ];
 
   // Auto-slide effect
