@@ -487,7 +487,7 @@ export default function FFCHomePage() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {serviceCategories.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`}>
+              <Link key={service.slug} href={`/${service.slug}`}>
                 <Card className="h-full hover:shadow-lg transition-shadow border-amber-100 hover:border-amber-300 group">
                   <CardContent className="p-4 md:p-6 text-center">
                     <div className="text-3xl md:text-4xl mb-3 md:mb-4">{service.emoji}</div>

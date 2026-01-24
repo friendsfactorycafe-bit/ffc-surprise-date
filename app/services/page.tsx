@@ -53,7 +53,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {serviceCategories.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`}>
+              <Link key={service.slug} href={`/${service.slug}`}>
                 <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-2 border-amber-100 group">
                   <div className="aspect-square md:aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
                     <span className="text-5xl md:text-7xl">{service.emoji}</span>

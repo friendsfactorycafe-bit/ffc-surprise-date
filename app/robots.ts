@@ -29,9 +29,6 @@ export default function robots(): MetadataRoute.Robots {
           "/packages",
           "/packages/*",
           "/services",
-          "/services/*",
-          "/areas",
-          "/areas/*",
           "/virtual-tour",
         ],
         disallow: [

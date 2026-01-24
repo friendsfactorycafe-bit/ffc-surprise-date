@@ -27,14 +27,14 @@ const navigation = [
 ];
 
 const serviceLinks = [
-  { name: 'Birthday Surprise', href: '/services/birthday-surprise' },
-  { name: 'Anniversary', href: '/services/anniversary-celebration' },
-  { name: 'Proposal', href: '/services/proposal' },
-  { name: 'Candlelight Dinner', href: '/services/candlelight-dinner' },
-  { name: 'Surprise Date', href: '/services/surprise-date' },
-  { name: 'Pre-Wedding Shoot', href: '/services/pre-wedding-shoot' },
-  { name: 'Baby Moments', href: '/services/baby-moments' },
-  { name: "Valentine's Week", href: '/services/valentines-week' },
+  { name: 'Birthday Surprise', href: '/birthday-surprise' },
+  { name: 'Anniversary', href: '/anniversary-celebration' },
+  { name: 'Proposal', href: '/proposal' },
+  { name: 'Candlelight Dinner', href: '/candlelight-dinner' },
+  { name: 'Surprise Date', href: '/surprise-date' },
+  { name: 'Pre-Wedding Shoot', href: '/pre-wedding-shoot' },
+  { name: 'Baby Moments', href: '/baby-moments' },
+  { name: "Valentine's Week", href: '/valentines-week' },
 ];
 
 export function FFCHeader() {
@@ -243,7 +243,7 @@ export function FFCFooter() {
             {visibleKeywords.map((keyword) => (
               <Link 
                 key={keyword.slug}
-                href={`/services/${keyword.serviceSlug}/${keyword.slug}`}
+                href={`/${keyword.slug}`}
                 className="text-xs text-gray-500 hover:text-amber-400 transition-colors"
               >
                 {keyword.title}
@@ -271,7 +271,7 @@ export function FFCFooter() {
             {visibleAreas.map((area) => (
               <Link 
                 key={area.slug}
-                href={`/areas/${area.slug}`}
+                href={`/${area.slug}`}
                 className="text-xs text-gray-500 hover:text-amber-400 transition-colors"
               >
                 {area.name}

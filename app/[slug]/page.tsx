@@ -88,12 +88,12 @@ export async function generateMetadata({
         `private dining ${area.name}`
       ],
       alternates: {
-        canonical: `https://friendsfactorycafe.com/areas/${area.slug}`,
+        canonical: `https://friendsfactorycafe.com/${area.slug}`,
       },
       openGraph: {
         title: areaTitle,
         description: `Premium romantic celebration services for couples in ${area.name}, Vadodara. Birthday surprises, candlelight dinners & more!`,
-        url: `https://friendsfactorycafe.com/areas/${area.slug}`,
+        url: `https://friendsfactorycafe.com/${area.slug}`,
         type: "website",
         locale: "en_IN",
         siteName: "Friends Factory Cafe",

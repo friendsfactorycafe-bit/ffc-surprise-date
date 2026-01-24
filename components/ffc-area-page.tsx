@@ -105,7 +105,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {serviceCategories.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`}>
+              <Link key={service.slug} href={`/${service.slug}`}>
                 <Card className="h-full hover:shadow-lg transition-all border-amber-100 group text-center">
                   <CardContent className="p-4 md:p-6">
                     <span className="text-4xl md:text-5xl mb-3 md:mb-4 block">{service.emoji}</span>

@@ -40,7 +40,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
             <ChevronRight className="h-4 w-4 text-gray-400" />
             <Link href="/services" className="text-gray-500 hover:text-amber-600">Services</Link>
             <ChevronRight className="h-4 w-4 text-gray-400" />
-            <Link href={`/services/${service.slug}`} className="text-gray-500 hover:text-amber-600">{service.name}</Link>
+            <Link href={`/${service.slug}`} className="text-gray-500 hover:text-amber-600">{service.name}</Link>
             <ChevronRight className="h-4 w-4 text-gray-400" />
             <span className="text-amber-600 font-medium">{keyword.title}</span>
           </nav>
@@ -278,7 +278,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
             {relatedKeywords.map((kw) => (
               <Link 
                 key={kw.slug}
-                href={`/services/${service.slug}/${kw.slug}`}
+                href={`/${kw.slug}`}
               >
                 <Card className="border-amber-100 hover:border-amber-300 hover:shadow-md transition-all group">
                   <CardContent className="p-4">

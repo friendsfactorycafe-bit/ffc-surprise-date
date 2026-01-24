@@ -172,7 +172,7 @@ export default function FFCServicePage({ service }: ServicePageProps) {
             {service.keywords.map((keyword) => (
               <Link 
                 key={keyword.slug}
-                href={`/services/${service.slug}/${keyword.slug}`}
+                href={`/${keyword.slug}`}
                 className="block"
               >
                 <Card className="border-amber-100 hover:border-amber-300 hover:shadow-md transition-all group">

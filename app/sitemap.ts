@@ -60,7 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 8 main service categories - high priority
   serviceCategories.forEach((service) => {
     entries.push({
-      url: `${baseUrl}/services/${service.slug}`,
+      url: `${baseUrl}/${service.slug}`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.9,
@@ -81,11 +81,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ==================== KEYWORD PAGES (MAIN SEO) ====================
   // 120 keyword pages (15 per service × 8 services)
   // These are the main SEO landing pages targeting specific search queries
-  // URL Structure: /services/{service}/{keyword}
+  // URL Structure: /{keyword}
   serviceCategories.forEach((service) => {
     service.keywords.forEach((keyword) => {
       entries.push({
-        url: `${baseUrl}/services/${service.slug}/${keyword.slug}`,
+        url: `${baseUrl}/${keyword.slug}`,
         lastModified: currentDate,
         changeFrequency: "weekly",
         priority: 0.85,
@@ -97,33 +97,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 40 Vadodara area pages for local SEO
   vadodaraAreas.forEach((area) => {
     entries.push({
-      url: `${baseUrl}/areas/${area.slug}`,
+      url: `${baseUrl}/${area.slug}`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.8,
-    });
-  });
-  
-  // ==================== DYNAMIC SLUG PAGES ====================
-  // Top keyword pages also accessible at root level
-  // These are the highest-traffic keywords
-  const topKeywords = [
-    'birthday-surprise-for-boyfriend-vadodara',
-    'birthday-surprise-for-girlfriend-vadodara',
-    'candlelight-dinner-for-couples-vadodara',
-    'romantic-dinner-vadodara',
-    'proposal-setup-vadodara',
-    'anniversary-dinner-vadodara',
-    'pre-wedding-shoot-location-vadodara',
-    'valentines-day-celebration-vadodara',
-  ];
-  
-  topKeywords.forEach((keyword) => {
-    entries.push({
-      url: `${baseUrl}/${keyword}`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
     });
   });
   

@@ -819,6 +819,26 @@ export const serviceCategories: ServiceCategory[] = [
       { slug: "valentines-candlelight-dinner-vadodara", title: "Valentine's Candlelight Dinner", h1: "Valentine's Day Candlelight Dinner in Vadodara 2026", metaTitle: "Valentine's Candlelight Dinner Vadodara 2026 | Private Venue", metaDescription: "Romantic Valentine's Day candlelight dinner in Vadodara 2026. Private rooftop venue at Friends Factory Cafe." },
       { slug: "valentines-special-vadodara", title: "Valentine's Special", h1: "Valentine's Day Special Celebration in Vadodara 2026", metaTitle: "Valentine's Day Special Vadodara 2026 | Unforgettable", metaDescription: "Experience Valentine's Day special celebration in Vadodara 2026 with romantic packages at Friends Factory Cafe." }
     ]
+  },
+  {
+    slug: "rooftop-experience",
+    name: "Rooftop Experience",
+    emoji: "🌙",
+    description: "Experience unforgettable moments on our stunning rooftop venue with panoramic city views, starlit ambiance, and exclusive setups.",
+    metaTitle: "Rooftop Experience in Vadodara | Friends Factory Cafe",
+    metaDescription: "Discover the best rooftop experience in Vadodara at Friends Factory Cafe. Stunning city views, romantic ambiance, and exclusive private celebrations under the stars.",
+    keywords: [
+      { slug: "rooftop-celebration-vadodara", title: "Rooftop Celebration", h1: "Rooftop Celebration Venue in Vadodara", metaTitle: "Rooftop Celebration Vadodara | Premium Venue with City Views", metaDescription: "Book a stunning rooftop celebration in Vadodara at Friends Factory Cafe. Premium private venue with panoramic city views, elegant decorations, and unforgettable ambiance for couples." },
+      { slug: "rooftop-party-venue-vadodara", title: "Rooftop Party Venue", h1: "Best Rooftop Party Venue in Vadodara", metaTitle: "Rooftop Party Venue Vadodara | Private Events & Celebrations", metaDescription: "Find the best rooftop party venue in Vadodara at Friends Factory Cafe. Perfect for intimate parties, couple celebrations, and private events with stunning city skyline views." },
+      { slug: "rooftop-dining-vadodara", title: "Rooftop Dining", h1: "Rooftop Dining Experience in Vadodara", metaTitle: "Rooftop Dining Vadodara | Fine Dining Under the Stars", metaDescription: "Experience exquisite rooftop dining in Vadodara at Friends Factory Cafe. Gourmet cuisine, candlelit tables, and breathtaking views for an unforgettable evening." },
+      { slug: "rooftop-restaurant-vadodara", title: "Rooftop Restaurant", h1: "Best Rooftop Restaurant in Vadodara", metaTitle: "Rooftop Restaurant Vadodara | Romantic Dining Destination", metaDescription: "Discover the best rooftop restaurant in Vadodara for couples. Friends Factory Cafe offers romantic atmosphere, delicious food, and stunning open-air dining experience." },
+      { slug: "rooftop-birthday-celebration-vadodara", title: "Rooftop Birthday Celebration", h1: "Rooftop Birthday Celebration in Vadodara", metaTitle: "Rooftop Birthday Celebration Vadodara | Private Sky Venue", metaDescription: "Celebrate birthdays on a beautiful rooftop in Vadodara. Friends Factory Cafe offers private rooftop venue with decorations, cake, and magical city views." },
+      { slug: "rooftop-anniversary-vadodara", title: "Rooftop Anniversary", h1: "Rooftop Anniversary Celebration in Vadodara", metaTitle: "Rooftop Anniversary Vadodara | Romantic Open-Air Venue", metaDescription: "Celebrate your anniversary on a romantic rooftop in Vadodara. Friends Factory Cafe provides elegant decorations, candlelight dinner, and starlit ambiance." },
+      { slug: "open-air-rooftop-vadodara", title: "Open Air Rooftop", h1: "Open Air Rooftop Venue in Vadodara", metaTitle: "Open Air Rooftop Vadodara | Fresh Air & City Lights", metaDescription: "Experience the best open air rooftop venue in Vadodara. Friends Factory Cafe offers fresh breezes, city lights, and romantic atmosphere for couples." },
+      { slug: "sky-lounge-vadodara", title: "Sky Lounge", h1: "Sky Lounge Experience in Vadodara", metaTitle: "Sky Lounge Vadodara | Elevated Romantic Experience", metaDescription: "Visit the premium sky lounge in Vadodara at Friends Factory Cafe. Elevated dining, panoramic views, and exclusive atmosphere for memorable celebrations." },
+      { slug: "terrace-dining-vadodara", title: "Terrace Dining", h1: "Terrace Dining for Couples in Vadodara", metaTitle: "Terrace Dining Vadodara | Al Fresco Romance", metaDescription: "Enjoy romantic terrace dining in Vadodara at Friends Factory Cafe. Al fresco experience with beautiful setups, great food, and intimate ambiance for couples." },
+      { slug: "rooftop-sunset-dinner-vadodara", title: "Rooftop Sunset Dinner", h1: "Rooftop Sunset Dinner in Vadodara", metaTitle: "Rooftop Sunset Dinner Vadodara | Golden Hour Romance", metaDescription: "Book a magical rooftop sunset dinner in Vadodara. Watch the golden hour with your partner while enjoying romantic dinner at Friends Factory Cafe." }
+    ]
   }
 ];
 
