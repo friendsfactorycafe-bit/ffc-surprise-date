@@ -12,3 +12,9 @@ dist
 public/videos/*.mp4
 public/videos/*.MOV
 public/videos/*.mov
+
+# Large video files (>100MB)
+public/videos/1000330055.mp4
+public/videos/1000330061.mp4
+public/videos/1000330062.mp4
+public/videos/Prakhar & Priyanka.mp4
