@@ -27,11 +27,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://friendsfactorycafe.com"),
   title: {
-    default: "Friends Factory Cafe Vadodara | Romantic Celebrations & Candlelight Dinners",
+    default: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue | Candlelight Dinners & Birthday Surprises",
     template: "%s | Friends Factory Cafe Vadodara",
   },
   description:
-    "Best romantic celebration venue in Vadodara, Gujarat. Birthday surprises, candlelight dinners, anniversary celebrations, proposals, pre-wedding shoots. 100% private rooftop & glass house. Call +91 74878 88730.",
+    "Best romantic celebration venue in Vadodara, Gujarat. Birthday surprises, candlelight dinners, anniversary celebrations, proposals, pre-wedding shoots. 100% private rooftop & glass house. Starting ₹6,900. Call +91 74878 88730.",
   keywords: [
     "friends factory cafe",
     "friends factory cafe vadodara",
@@ -48,7 +48,15 @@ export const metadata: Metadata = {
     "date night vadodara",
     "pre-wedding photoshoot vadodara",
     "surprise party vadodara",
-    "romantic venue gujarat"
+    "romantic venue gujarat",
+    "birthday surprise for boyfriend vadodara",
+    "birthday surprise for girlfriend vadodara",
+    "candlelight dinner for couples vadodara",
+    "romantic dinner vadodara",
+    "proposal setup vadodara",
+    "anniversary dinner vadodara",
+    "valentines day vadodara",
+    "glass house cafe vadodara"
   ],
   authors: [{ name: "Friends Factory Cafe", url: "https://friendsfactorycafe.com" }],
   creator: "Friends Factory Cafe",
@@ -61,39 +69,47 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://friendsfactorycafe.com",
   },
+  category: "Restaurant",
+  classification: "Romantic Celebration Venue",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://friendsfactorycafe.com",
     siteName: "Friends Factory Cafe",
-    title: "Friends Factory Cafe Vadodara | Romantic Celebrations & Candlelight Dinners",
-    description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals. 100% private rooftop & glass house experiences.",
+    title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
+    description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals. 100% private rooftop & glass house experiences. Starting ₹6,900.",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Friends Factory Cafe - Romantic Celebrations in Vadodara",
+        alt: "Friends Factory Cafe - Best Romantic Celebrations in Vadodara",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Friends Factory Cafe Vadodara | Romantic Celebrations",
-    description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, proposals & more!",
+    title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
+    description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, proposals & more! Starting ₹6,900.",
     images: ["/images/twitter-image.jpg"],
     creator: "@friendsfactorycafe",
+    site: "@friendsfactorycafe",
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "c1b155cb6acd07f9", // From googlec1b155cb6acd07f9.html
   },
   icons: {
     icon: [
@@ -105,6 +121,166 @@ export const metadata: Metadata = {
     apple: "/apple-icon.svg",
   },
   manifest: "/manifest.json",
+  other: {
+    "geo.region": "IN-GJ",
+    "geo.placename": "Vadodara",
+    "geo.position": "22.3072;73.1812",
+    "ICBM": "22.3072, 73.1812",
+  },
+};
+
+// JSON-LD Structured Data for SEO
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://friendsfactorycafe.com/#business",
+      "name": "Friends Factory Cafe",
+      "alternateName": "Friends Factory Cafe Vadodara",
+      "description": "Best romantic celebration venue in Vadodara, Gujarat. Birthday surprises, candlelight dinners, anniversary celebrations, proposals, pre-wedding shoots. 100% private rooftop & glass house experiences.",
+      "url": "https://friendsfactorycafe.com",
+      "telephone": "+91-7487888730",
+      "email": "hello@friendsfactorycafe.com",
+      "priceRange": "₹₹₹",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, Credit Card, UPI, GPay, PhonePe",
+      "image": [
+        "https://friendsfactorycafe.com/images/gallery/romantic-rooftop-candlelight-dinner-vadodara-1.jpg",
+        "https://friendsfactorycafe.com/images/gallery/birthday-surprise-decoration-vadodara-1.jpg",
+        "https://friendsfactorycafe.com/images/gallery/glass-house-dinner-vadodara-1.jpg"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "424, OneWest, Asopalav W, 4th Floor, Priya Talkies Road, Besides Adventuraa",
+        "addressLocality": "Gotri",
+        "addressRegion": "Gujarat",
+        "postalCode": "391101",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "22.3072",
+        "longitude": "73.1812"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "23:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/friendsfactorycafe/",
+        "https://www.facebook.com/friendsfactorycafe/"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "500",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Romantic Celebration Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Birthday Surprise Package",
+              "description": "Private rooftop birthday celebration with decorations, cake, and romantic setup"
+            },
+            "price": "6900",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Candlelight Dinner",
+              "description": "Romantic candlelight dinner for couples with private setting"
+            },
+            "price": "6900",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Anniversary Celebration",
+              "description": "Special anniversary celebration with decorations and intimate dining"
+            },
+            "price": "6900",
+            "priceCurrency": "INR"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://friendsfactorycafe.com/#website",
+      "url": "https://friendsfactorycafe.com",
+      "name": "Friends Factory Cafe",
+      "description": "Best romantic celebration venue in Vadodara",
+      "publisher": {
+        "@id": "https://friendsfactorycafe.com/#business"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://friendsfactorycafe.com/services?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://friendsfactorycafe.com/#organization",
+      "name": "Friends Factory Cafe",
+      "url": "https://friendsfactorycafe.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://friendsfactorycafe.com/images/gallery/friends-factory-cafe-logo-1.png",
+        "width": "512",
+        "height": "512"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7487888730",
+        "contactType": "reservations",
+        "areaServed": "Vadodara",
+        "availableLanguage": ["English", "Hindi", "Gujarati"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://friendsfactorycafe.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://friendsfactorycafe.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://friendsfactorycafe.com/services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Packages",
+          "item": "https://friendsfactorycafe.com/packages"
+        }
+      ]
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -114,6 +290,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
