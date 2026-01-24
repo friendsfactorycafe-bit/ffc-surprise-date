@@ -12,6 +12,7 @@ import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components
 import { FFCGalleryCompact } from '@/components/ffc-gallery';
 import { ServiceCategory, ServiceKeyword, packages, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 import { generateKeywordPageContent } from '@/lib/ffc-unique-content';
+import { getKeywordContent, UniqueKeywordContent } from '@/lib/ffc-keyword-content';
 
 interface KeywordPageProps {
   service: ServiceCategory;
@@ -25,8 +26,14 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
   // Get related keywords (excluding current)
   const relatedKeywords = service.keywords.filter(k => k.slug !== keyword.slug).slice(0, 6);
 
-  // Generate unique content for this keyword page
-  const uniqueContent = generateKeywordPageContent(service, keyword);
+  // TRY to get truly unique handcrafted content first
+  const handcraftedContent = getKeywordContent(keyword.slug);
+  
+  // Fall back to generated content if no handcrafted content exists
+  const generatedContent = generateKeywordPageContent(service, keyword);
+
+  // Use handcrafted content if available, otherwise use generated
+  const hasUniqueContent = !!handcraftedContent;
 
   return (
     <div className="min-h-screen bg-white">
@@ -59,7 +66,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                 {keyword.h1}
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-                Create magical {keyword.title.toLowerCase()} moments at Friends Factory Cafe. Premium romantic celebration venue with stunning setups and unforgettable experiences.
+                {hasUniqueContent ? handcraftedContent!.heroSubtitle : `Create magical ${keyword.title.toLowerCase()} moments at Friends Factory Cafe. Premium romantic celebration venue with stunning setups and unforgettable experiences.`}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -109,18 +116,18 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                   {keyword.title} at Friends Factory Cafe
                 </h2>
                 
-                {/* Introduction - from generated content */}
+                {/* Introduction - from unique content */}
                 <div className="text-gray-600 mb-6 whitespace-pre-line">
-                  {uniqueContent.introduction}
+                  {hasUniqueContent ? handcraftedContent!.introduction : generatedContent.introduction}
                 </div>
 
                 <div className="bg-amber-50 rounded-xl p-6 mb-8">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                     <Gift className="h-5 w-5 text-amber-600" />
-                    What's Included
+                    What's Included in Your {keyword.title}
                   </h3>
                   <div className="grid md:grid-cols-2 gap-3">
-                    {[
+                    {(hasUniqueContent ? handcraftedContent!.features : [
                       "3 Mesmerizing Hours of Private Celebration",
                       "Welcome Drink & Celebration Cake",
                       "Romantic Decorations & Setup",
@@ -129,7 +136,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                       "Photo-Ready Backdrop",
                       "Delicious Café-Style Food",
                       "Panoramic City Views"
-                    ].map((item, index) => (
+                    ]).map((item, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-amber-600 flex-shrink-0" />
                         <span className="text-gray-700">{item}</span>
@@ -139,7 +146,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                 </div>
 
                 {/* Dynamic content sections */}
-                {uniqueContent.sections.map((section, idx) => (
+                {(hasUniqueContent ? handcraftedContent!.sections : generatedContent.sections).map((section, idx) => (
                   <div key={idx} className="mb-8">
                     <h3 className="text-xl font-bold mb-4">{section.heading}</h3>
                     <div className="text-gray-600 whitespace-pre-line">
@@ -148,14 +155,34 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                   </div>
                 ))}
 
+                {/* Process Section - only for handcrafted content */}
+                {hasUniqueContent && handcraftedContent!.process && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold mb-4">How to Book Your {keyword.title}</h3>
+                    <div className="space-y-4">
+                      {handcraftedContent!.process.map((step, idx) => (
+                        <div key={idx} className="flex gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            {idx + 1}
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900">{step.step}</h4>
+                            <p className="text-gray-600">{step.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <h3 className="text-xl font-bold mb-4">
-                  Why Choose Friends Factory Cafe?
+                  Why Choose Friends Factory Cafe for {keyword.title}?
                 </h3>
                 
                 <ul className="space-y-3 mb-8">
-                  {uniqueContent.whyChooseUs.map((item, index) => (
+                  {(hasUniqueContent ? handcraftedContent!.whyChooseUs : generatedContent.whyChooseUs).map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="text-amber-600 font-bold">•</span>
+                      <Check className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -188,10 +215,26 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
 
                 {/* Testimonials */}
                 <div className="bg-amber-50 rounded-xl p-6 mb-8">
-                  <h3 className="text-xl font-bold mb-4">💬 What Couples Say</h3>
-                  <div className="text-gray-600 italic whitespace-pre-line">
-                    {uniqueContent.testimonialContent}
-                  </div>
+                  <h3 className="text-xl font-bold mb-4">💬 What Couples Say About {keyword.title}</h3>
+                  {hasUniqueContent ? (
+                    <div className="space-y-3">
+                      <p className="text-gray-600 italic">"{handcraftedContent!.testimonial.text}"</p>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-gray-900">— {handcraftedContent!.testimonial.name}</span>
+                        <span className="text-gray-500">|</span>
+                        <span className="text-gray-600 text-sm">{handcraftedContent!.testimonial.location}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-amber-500">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-current" />
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-gray-600 italic whitespace-pre-line">
+                      {generatedContent.testimonialContent}
+                    </div>
+                  )}
                 </div>
               </article>
 
@@ -330,7 +373,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
           </div>
           
           <Accordion type="single" collapsible className="space-y-4">
-            {uniqueContent.faqContent.map((faq, index) => (
+            {(hasUniqueContent ? handcraftedContent!.faqs : generatedContent.faqContent).map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`} className="bg-white rounded-lg border border-amber-100 px-6">
                 <AccordionTrigger className="text-left font-medium hover:no-underline">
                   {faq.question}
@@ -351,7 +394,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
             Ready for Your {keyword.title}?
           </h2>
           <p className="text-white/90 mb-8 whitespace-pre-line">
-            {uniqueContent.closingCta}
+            {hasUniqueContent ? handcraftedContent!.closingText : generatedContent.closingCta}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <FFCBookNowButton 

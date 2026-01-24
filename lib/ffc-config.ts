@@ -32,6 +32,17 @@ export interface ServiceKeyword {
   h1: string;
   metaTitle: string;
   metaDescription: string;
+  // NEW: Unique content fields for each page
+  uniqueContent?: {
+    heroSubtitle: string;
+    introduction: string;
+    whyChooseUs: string[];
+    features: string[];
+    process: { step: string; description: string }[];
+    faqs: { question: string; answer: string }[];
+    testimonial: { name: string; text: string; rating: number };
+    closingText: string;
+  };
 }
 
 export interface AreaConfig {
