@@ -84,25 +84,25 @@ export function FFCBookingForm({ pageTitle, variant = 'default', packageName, de
     const timeLabel = timeSlots.find(t => t.value === data.preferredTime)?.label || data.preferredTime;
     const selectedPkg = data.selectedPackage ? packages.find(p => p.slug === data.selectedPackage) : null;
     
-    let message = `🎉 *New Booking Inquiry - Friends Factory Cafe*\n\n`;
-    message += `👤 *Name:* ${data.name}\n`;
-    message += `📱 *Phone:* ${data.phone}\n`;
-    message += `📍 *City:* ${data.city}\n`;
-    message += `📅 *Date:* ${data.occasionDate}\n`;
-    message += `🕐 *Preferred Time:* ${timeLabel}\n`;
-    message += `🎊 *Occasion:* ${occasionLabel}\n`;
+    let message = `*New Booking Inquiry - Friends Factory Cafe*\n\n`;
+    message += `*Name:* ${data.name}\n`;
+    message += `*Phone:* ${data.phone}\n`;
+    message += `*City:* ${data.city}\n`;
+    message += `*Date:* ${data.occasionDate}\n`;
+    message += `*Preferred Time:* ${timeLabel}\n`;
+    message += `*Occasion:* ${occasionLabel}\n`;
     
     if (selectedPkg) {
-      message += `\n📦 *Selected Package:* ${selectedPkg.name} (₹${selectedPkg.price.toLocaleString('en-IN')})\n`;
+      message += `\n*Selected Package:* ${selectedPkg.name} (Rs.${selectedPkg.price.toLocaleString('en-IN')})\n`;
     } else if (packageName) {
-      message += `\n📦 *Package:* ${packageName}\n`;
+      message += `\n*Package:* ${packageName}\n`;
     }
     
     if (pageTitle) {
-      message += `\n📍 *Interested In:* ${pageTitle}\n`;
+      message += `\n*Interested In:* ${pageTitle}\n`;
     }
     
-    message += `\n💕 Looking forward to creating beautiful memories! ✨`;
+    message += `\nLooking forward to creating beautiful memories!`;
     
     return encodeURIComponent(message);
   };
