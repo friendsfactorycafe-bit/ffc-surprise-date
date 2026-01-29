@@ -820,6 +820,31 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    slug: "valentines-week",
+    name: "Valentine's Week",
+    emoji: "💝",
+    description: "Celebrate Valentine's Week with romantic experiences from Rose Day to Valentine's Day at Friends Factory Cafe.",
+    metaTitle: "Valentine's Week Celebration in Vadodara | Friends Factory Cafe",
+    metaDescription: "Celebrate Valentine's Week 2026 in Vadodara at Friends Factory Cafe. Rose Day, Propose Day, Hug Day, Kiss Day & Valentine's Day special romantic packages.",
+    keywords: [
+      { slug: "valentines-day-celebration-vadodara", title: "Valentine's Day Celebration", h1: "Valentine's Day Celebration in Vadodara 2026", metaTitle: "Valentine's Day Celebration Vadodara 2026 | Romantic Date", metaDescription: "Plan the perfect Valentine's Day celebration in Vadodara 2026. Romantic candlelight dinner, decorations & private venue at Friends Factory Cafe." },
+      { slug: "rose-day-celebration-vadodara", title: "Rose Day Celebration", h1: "Rose Day Celebration in Vadodara (Feb 7)", metaTitle: "Rose Day Celebration Vadodara 2026 | February 7th", metaDescription: "Celebrate Rose Day in Vadodara on February 7th with your partner. Rose decorations, romantic ambiance at Friends Factory Cafe." },
+      { slug: "propose-day-celebration-vadodara", title: "Propose Day Celebration", h1: "Propose Day Celebration in Vadodara (Feb 8)", metaTitle: "Propose Day Celebration Vadodara 2026 | February 8th", metaDescription: "Make Propose Day special in Vadodara on February 8th. Romantic proposal setup with decorations at Friends Factory Cafe." },
+      { slug: "chocolate-day-celebration-vadodara", title: "Chocolate Day Celebration", h1: "Chocolate Day Celebration in Vadodara (Feb 9)", metaTitle: "Chocolate Day Celebration Vadodara 2026 | February 9th", metaDescription: "Celebrate Chocolate Day in Vadodara on February 9th with sweet treats and romantic dinner at Friends Factory Cafe." },
+      { slug: "teddy-day-celebration-vadodara", title: "Teddy Day Celebration", h1: "Teddy Day Celebration in Vadodara (Feb 10)", metaTitle: "Teddy Day Celebration Vadodara 2026 | February 10th", metaDescription: "Cute Teddy Day celebration in Vadodara on February 10th with teddy decorations at Friends Factory Cafe." },
+      { slug: "promise-day-celebration-vadodara", title: "Promise Day Celebration", h1: "Promise Day Celebration in Vadodara (Feb 11)", metaTitle: "Promise Day Celebration Vadodara 2026 | February 11th", metaDescription: "Celebrate Promise Day in Vadodara on February 11th with meaningful moments at Friends Factory Cafe." },
+      { slug: "hug-day-celebration-vadodara", title: "Hug Day Celebration", h1: "Hug Day Celebration in Vadodara (Feb 12)", metaTitle: "Hug Day Celebration Vadodara 2026 | February 12th", metaDescription: "Cozy Hug Day celebration in Vadodara on February 12th with warm ambiance at Friends Factory Cafe." },
+      { slug: "kiss-day-celebration-vadodara", title: "Kiss Day Celebration", h1: "Kiss Day Celebration in Vadodara (Feb 13)", metaTitle: "Kiss Day Celebration Vadodara 2026 | February 13th", metaDescription: "Romantic Kiss Day celebration in Vadodara on February 13th with intimate setup at Friends Factory Cafe." },
+      { slug: "valentines-dinner-vadodara", title: "Valentine's Dinner", h1: "Valentine's Day Dinner in Vadodara 2026", metaTitle: "Valentine's Day Dinner Vadodara 2026 | Romantic Restaurant", metaDescription: "Book romantic Valentine's Day dinner in Vadodara 2026. Candlelight dinner with special menu at Friends Factory Cafe." },
+      { slug: "valentines-week-packages-vadodara", title: "Valentine's Week Packages", h1: "Valentine's Week Packages in Vadodara 2026", metaTitle: "Valentine's Week Packages Vadodara 2026 | All 7 Days", metaDescription: "Special Valentine's Week packages in Vadodara 2026 for all 7 days. Rose Day to Valentine's Day celebrations at Friends Factory Cafe." },
+      { slug: "valentines-date-vadodara", title: "Valentine's Date", h1: "Valentine's Day Date in Vadodara 2026", metaTitle: "Valentine's Day Date Vadodara 2026 | Perfect Evening", metaDescription: "Plan the perfect Valentine's Day date in Vadodara 2026. Romantic rooftop dinner at Friends Factory Cafe." },
+      { slug: "valentines-surprise-vadodara", title: "Valentine's Surprise", h1: "Valentine's Day Surprise in Vadodara 2026", metaTitle: "Valentine's Day Surprise Vadodara 2026 | Surprise Your Love", metaDescription: "Plan a Valentine's Day surprise in Vadodara 2026 with decorations and special setup at Friends Factory Cafe." },
+      { slug: "valentines-decoration-vadodara", title: "Valentine's Decoration", h1: "Valentine's Day Decoration in Vadodara 2026", metaTitle: "Valentine's Day Decoration Vadodara 2026 | Romantic Setup", metaDescription: "Beautiful Valentine's Day decoration in Vadodara 2026 with hearts, roses, and candles at Friends Factory Cafe." },
+      { slug: "valentines-candlelight-dinner-vadodara", title: "Valentine's Candlelight Dinner", h1: "Valentine's Day Candlelight Dinner in Vadodara 2026", metaTitle: "Valentine's Candlelight Dinner Vadodara 2026 | Private Venue", metaDescription: "Romantic Valentine's Day candlelight dinner in Vadodara 2026. Private rooftop venue at Friends Factory Cafe." },
+      { slug: "valentines-special-vadodara", title: "Valentine's Special", h1: "Valentine's Day Special Celebration in Vadodara 2026", metaTitle: "Valentine's Day Special Vadodara 2026 | Unforgettable", metaDescription: "Experience Valentine's Day special celebration in Vadodara 2026 with romantic packages at Friends Factory Cafe." }
+    ]
+  },
+  {
     slug: "rooftop-experience",
     name: "Rooftop Experience",
     emoji: "🌙",
