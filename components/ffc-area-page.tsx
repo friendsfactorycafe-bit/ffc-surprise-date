@@ -69,16 +69,27 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 </a>
               </div>
               
+              {/* Dynamic Hero Badges - Unique per area */}
               <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
-                <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                  <Star className="h-4 w-4" /> 4.9★ Rating
-                </span>
-                <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                  <Check className="h-4 w-4" /> 100% Private
-                </span>
-                <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                  <Heart className="h-4 w-4" /> Couples Only
-                </span>
+                {uniqueContent?.heroBadges ? (
+                  uniqueContent.heroBadges.map((badge, index) => (
+                    <span key={index} className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
+                      {badge}
+                    </span>
+                  ))
+                ) : (
+                  <>
+                    <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
+                      <Star className="h-4 w-4" /> 4.9★ Rating
+                    </span>
+                    <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
+                      <Check className="h-4 w-4" /> 100% Private
+                    </span>
+                    <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
+                      <Heart className="h-4 w-4" /> Couples Only
+                    </span>
+                  </>
+                )}
               </div>
             </div>
             
@@ -94,6 +105,35 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Top Services in This Area - Dynamic per area */}
+      {uniqueContent?.topServicesInArea && (
+        <section className="py-16 bg-amber-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 font-serif">
+                Most Popular in {area.name}
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                What {area.name} couples celebrate most with us
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {uniqueContent.topServicesInArea.map((service, index) => (
+                <Card key={index} className="border-amber-200 hover:shadow-lg transition-all">
+                  <CardContent className="p-6 text-center">
+                    <span className="text-4xl mb-4 block">{service.emoji}</span>
+                    <Badge className="mb-3 bg-amber-100 text-amber-700">{service.popularity}</Badge>
+                    <h3 className="font-semibold text-lg mb-2">{service.name}</h3>
+                    <p className="text-gray-600 text-sm">{service.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Services in This Area */}
       <section className="py-16 bg-white">
@@ -253,7 +293,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 {/* Nearby Landmarks - Only if unique content exists */}
                 {uniqueContent?.nearbyLandmarks && (
                   <div className="bg-white rounded-xl p-6 mb-8 border border-amber-100">
-                    <h3 className="text-xl font-bold mb-4">Nearby Landmarks in {area.name}</h3>
+                    <h3 className="text-xl font-bold mb-4">Nearby Landmarks from {area.name}</h3>
                     <div className="flex flex-wrap gap-2">
                       {uniqueContent.nearbyLandmarks.map((landmark, index) => (
                         <span key={index} className="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-sm">
@@ -264,10 +304,95 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                   </div>
                 )}
 
+                {/* Area Specialty - Only if unique content exists */}
+                {uniqueContent?.areaSpecialty && (
+                  <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-6 mb-8 border border-amber-200">
+                    <h3 className="text-xl font-bold mb-3 text-amber-800">{uniqueContent.areaSpecialty.title}</h3>
+                    <p className="text-gray-700 mb-3">{uniqueContent.areaSpecialty.description}</p>
+                    <p className="text-amber-700 font-medium flex items-center gap-2">
+                      <Star className="h-4 w-4" /> {uniqueContent.areaSpecialty.highlightFeature}
+                    </p>
+                  </div>
+                )}
+
+                {/* Popular Occasions in Area - Only if unique content exists */}
+                {uniqueContent?.popularOccasions && (
+                  <div className="bg-white rounded-xl p-6 mb-8 border border-amber-100">
+                    <h3 className="text-xl font-bold mb-4">What {area.name} Couples Celebrate</h3>
+                    <div className="space-y-4">
+                      {uniqueContent.popularOccasions.map((occ, index) => (
+                        <div key={index} className="flex items-center justify-between border-b border-amber-100 pb-3 last:border-0">
+                          <div>
+                            <p className="font-medium text-gray-800">{occ.occasion}</p>
+                            <p className="text-sm text-gray-500">Peak: {occ.peakMonth}</p>
+                          </div>
+                          <Badge className="bg-amber-100 text-amber-700">{occ.percentage}</Badge>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Booking Insights - Only if unique content exists */}
+                {uniqueContent?.bookingInsights && (
+                  <div className="bg-amber-50 rounded-xl p-6 mb-8 border border-amber-200">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <Gift className="h-5 w-5 text-amber-600" />
+                      {area.name} Booking Insights
+                    </h3>
+                    <div className="space-y-3 text-sm">
+                      <p><strong>Preferred Slot:</strong> {uniqueContent.bookingInsights.preferredSlot}</p>
+                      <p><strong>Advance Booking:</strong> {uniqueContent.bookingInsights.averageAdvanceBooking}</p>
+                      <p><strong>Popular Package:</strong> {uniqueContent.bookingInsights.popularPackage}</p>
+                      <p className="bg-white p-3 rounded-lg border border-amber-200 mt-4">
+                        <strong className="text-amber-700">💡 Insider Tip:</strong> {uniqueContent.bookingInsights.insiderTip}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Local Tips - Only if unique content exists */}
+                {uniqueContent?.localTips && (
+                  <div className="bg-white rounded-xl p-6 mb-8 border border-amber-100">
+                    <h3 className="text-xl font-bold mb-4">Local Tips for {area.name} Couples</h3>
+                    <ul className="space-y-2">
+                      {uniqueContent.localTips.map((tip, index) => (
+                        <li key={index} className="flex items-start gap-2 text-gray-700">
+                          <span className="text-amber-600">💡</span>
+                          <span className="text-sm">{tip}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Additional Reviews - Only if unique content exists */}
+                {uniqueContent?.additionalReviews && (
+                  <div className="bg-white rounded-xl p-6 mb-8 border border-amber-100">
+                    <h3 className="text-xl font-bold mb-4">More Reviews from {area.name}</h3>
+                    <div className="space-y-4">
+                      {uniqueContent.additionalReviews.map((review, index) => (
+                        <div key={index} className="border-b border-amber-100 pb-4 last:border-0">
+                          <div className="flex mb-2">
+                            {[...Array(review.rating)].map((_, i) => (
+                              <Star key={i} className="h-3 w-3 fill-amber-500 text-amber-500" />
+                            ))}
+                          </div>
+                          <p className="text-gray-700 text-sm italic mb-2">"{review.text}"</p>
+                          <p className="text-gray-500 text-sm font-medium">— {review.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Closing Text */}
                 {uniqueContent?.closingText && (
                   <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 mb-8 border border-amber-200">
                     <p className="text-gray-700 font-medium">{uniqueContent.closingText}</p>
+                    {uniqueContent.callToAction && (
+                      <p className="mt-4 text-amber-700 font-semibold">{uniqueContent.callToAction}</p>
+                    )}
                   </div>
                 )}
               </article>
