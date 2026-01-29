@@ -53,26 +53,24 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {serviceCategories.map((service) => (
-              <Link key={service.slug} href={`/${service.slug}`}>
-                <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-2 border-amber-100 group">
-                  <div className="aspect-square md:aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
-                    <span className="text-5xl md:text-7xl">{service.emoji}</span>
+              <Card key={service.slug} className="h-full hover:shadow-xl transition-all hover:-translate-y-2 border-amber-100 group">
+                <div className="aspect-square md:aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+                  <span className="text-5xl md:text-7xl">{service.emoji}</span>
+                </div>
+                <CardContent className="p-3 md:p-6">
+                  <h2 className="text-sm md:text-xl font-bold mb-1 md:mb-3 group-hover:text-amber-600 transition-colors font-serif line-clamp-2">
+                    {service.name}
+                  </h2>
+                  <p className="text-gray-600 mb-2 md:mb-4 line-clamp-2 md:line-clamp-3 text-xs md:text-base hidden md:block">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <Link href="/packages" className="text-xs md:text-sm text-amber-600 font-medium hover:text-amber-700 transition-colors">
+                      View Packages →
+                    </Link>
                   </div>
-                  <CardContent className="p-3 md:p-6">
-                    <h2 className="text-sm md:text-xl font-bold mb-1 md:mb-3 group-hover:text-amber-600 transition-colors font-serif line-clamp-2">
-                      {service.name}
-                    </h2>
-                    <p className="text-gray-600 mb-2 md:mb-4 line-clamp-2 md:line-clamp-3 text-xs md:text-base hidden md:block">
-                      {service.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs md:text-sm text-amber-600 font-medium">
-                        {service.keywords.length} experiences →
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
