@@ -472,39 +472,6 @@ export default function FFCHomePage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
-              Our Services
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
-              Perfect For Every Celebration
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              From intimate candlelight dinners to grand proposals, we create magical moments for every special occasion.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {serviceCategories.map((service) => (
-              <Card key={service.slug} className="h-full border-amber-100">
-                <CardContent className="p-4 md:p-6 text-center">
-                  <div className="text-3xl md:text-4xl mb-3 md:mb-4">{service.emoji}</div>
-                  <h3 className="font-semibold text-sm md:text-lg mb-1 md:mb-2 line-clamp-2">
-                    {service.name}
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm line-clamp-2 hidden md:block">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Packages Section */}
       <section className="py-12 md:py-20 bg-gradient-to-b from-amber-50 to-white">
         <div className="container mx-auto px-4">
@@ -557,6 +524,39 @@ export default function FFCHomePage() {
                 View All Packages <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
+              Our Services
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
+              Perfect For Every Celebration
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              From intimate candlelight dinners to grand proposals, we create magical moments for every special occasion.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {serviceCategories.map((service) => (
+              <Card key={service.slug} className="h-full border-amber-100">
+                <CardContent className="p-4 md:p-6 text-center">
+                  <div className="text-3xl md:text-4xl mb-3 md:mb-4">{service.emoji}</div>
+                  <h3 className="font-semibold text-sm md:text-lg mb-1 md:mb-2 line-clamp-2">
+                    {service.name}
+                  </h3>
+                  <p className="text-gray-600 text-xs md:text-sm line-clamp-2 hidden md:block">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
