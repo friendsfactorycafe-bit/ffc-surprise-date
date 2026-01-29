@@ -1,12 +1,13 @@
 /**
  * DYNAMIC [SLUG] PAGE
- * Handles all keyword and area pages for Friends Factory Cafe
+ * Handles all service category, keyword, and area pages for Friends Factory Cafe
  */
 
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import FFCAreaPage from "@/components/ffc-area-page";
 import FFCKeywordPage from "@/components/ffc-keyword-page";
+import FFCServiceCategoryPage from "@/components/ffc-service-category-page";
 import { 
   vadodaraAreas, 
   getAreaBySlug, 
@@ -47,6 +48,11 @@ function findKeywordBySlug(slug: string): { keyword: ServiceKeyword; service: Se
 export async function generateStaticParams() {
   const params: { slug: string }[] = [];
   
+  // Add all service category pages
+  serviceCategories.forEach((service) => {
+    params.push({ slug: service.slug });
+  });
+  
   // Add all area pages
   vadodaraAreas.forEach((area) => {
     params.push({ slug: area.slug });
@@ -67,6 +73,38 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  
+  // Check if it's a service category page
+  const serviceCategory = getServiceBySlug(slug);
+  if (serviceCategory) {
+    return {
+      title: serviceCategory.metaTitle,
+      description: serviceCategory.metaDescription,
+      keywords: [
+        serviceCategory.name.toLowerCase(),
+        `${serviceCategory.name.toLowerCase()} vadodara`,
+        `${serviceCategory.name.toLowerCase()} for couples`,
+        `best ${serviceCategory.name.toLowerCase()} vadodara`,
+        `friends factory cafe ${serviceCategory.name.toLowerCase()}`
+      ],
+      alternates: {
+        canonical: `https://friendsfactorycafe.com/${serviceCategory.slug}`,
+      },
+      openGraph: {
+        title: serviceCategory.metaTitle,
+        description: serviceCategory.metaDescription,
+        url: `https://friendsfactorycafe.com/${serviceCategory.slug}`,
+        type: "website",
+        locale: "en_IN",
+        siteName: "Friends Factory Cafe",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: serviceCategory.metaTitle,
+        description: serviceCategory.metaDescription,
+      },
+    };
+  }
   
   // Check if it's an area page
   const area = getAreaBySlug(slug);
@@ -154,6 +192,12 @@ export default async function SlugPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  
+  // Check if it's a service category page
+  const serviceCategory = getServiceBySlug(slug);
+  if (serviceCategory) {
+    return <FFCServiceCategoryPage service={serviceCategory} />;
+  }
   
   // Check if it's an area page
   const area = getAreaBySlug(slug);
