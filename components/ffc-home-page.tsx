@@ -16,67 +16,67 @@ import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat } from '@/components/ffc-booking-form';
 import { siteConfig, packages, serviceCategories, vadodaraAreas, formatPrice, getAllBlogPosts, BlogPost } from '@/lib/ffc-config';
 
-// Experience features
+// Experience features - Focused on Surprise Celebrations
 const experienceFeatures = [
   {
-    icon: Clock,
-    title: "3 Mesmerizing Hours",
-    description: "Three magical hours designed to create unforgettable memories"
+    icon: Gift,
+    title: "Surprise Planning Experts",
+    description: "We plan every detail of your surprise celebration to perfection"
   },
   {
-    icon: Gift,
-    title: "Cake & Champagne",
-    description: "Complimentary cake & non-alcoholic champagne (₹500)"
+    icon: Clock,
+    title: "3 Magical Hours",
+    description: "Three unforgettable hours of private surprise celebration"
   },
   {
     icon: Camera,
-    title: "Photo-Ready Setup",
-    description: "Instagram-worthy decorations for your special moments"
+    title: "Photo-Ready Surprises",
+    description: "Instagram-worthy surprise setups for perfect memories"
   },
   {
-    icon: Music,
-    title: "Romantic Music",
-    description: "Soft background melodies to set the perfect mood"
+    icon: Heart,
+    title: "100% Private Venue",
+    description: "Completely private rooftop just for you and your loved one"
   }
 ];
 
-// FAQ items
+// FAQ items - Surprise Focused
 const faqs = [
   {
-    question: "What is the location of Friends Factory Cafe?",
-    answer: "Nestled at 424, OneWest, Asopalav W, 4th Floor, Sevasi-Canal Rd, Gotri, Vadodara—your premier rooftop spot for candlelight dinners just minutes from key areas."
+    question: "What surprise celebrations do you offer?",
+    answer: "We specialize in birthday surprises, anniversary surprises, surprise dates, surprise proposals, Valentine's surprises, and all kinds of romantic surprise celebrations for couples in Vadodara."
   },
   {
-    question: "How do I book a candlelight dinner or event?",
-    answer: `WhatsApp ${siteConfig.phone} or call directly—share your occasion (anniversary, proposal), date, and guest count for instant confirmation and custom quotes.`
+    question: "How do I plan a surprise for my partner?",
+    answer: `Simply WhatsApp us at ${siteConfig.phone} with the occasion, date, and your ideas. Our surprise planning experts will help you create the perfect surprise setup!`
   },
   {
-    question: "What are the starting prices for packages?",
-    answer: "Candlelight dinner packages begin at ₹6500, including rooftop setup, mocktails, flowers, and decor; premium options with photographer add ₹2000+."
+    question: "What's included in a surprise celebration package?",
+    answer: "Our surprise packages include romantic decorations, balloons, fairy lights, flowers, welcome drinks, celebration cake, and a private rooftop setup. Prices start from ₹6500."
   },
   {
-    question: "Can we book for marriage proposals or engagements?",
-    answer: "Absolutely—our rooftop proposal setups feature heart arches, fairy lights, and champagne for unforgettable 'yes' moments in Vadodara."
+    question: "Can you keep the surprise a secret from my partner?",
+    answer: "Absolutely! We're experts at keeping surprises secret. We'll coordinate with you discreetly and ensure your partner has no idea until the big reveal!"
   },
   {
-    question: "What occasions do you host?",
-    answer: "Anniversary celebrations, birthday surprises, proposals, last candlelight dinners before marriage, engagements, pre-wedding shoots, and pregnancy announcements."
+    question: "How far in advance should I book a surprise?",
+    answer: "We recommend booking at least 2-3 days in advance for the best availability. For special occasions like Valentine's Day or anniversaries, book 1 week ahead."
   },
   {
-    question: "What time slots are available for rooftop dinners?",
-    answer: "Evenings 6 PM–11 PM; weekends book fast—advance booking recommended for Vadodara's romantic peak hours."
+    question: "Is the venue completely private for surprise celebrations?",
+    answer: "Yes! Our rooftop venue is exclusively yours during your booking. No other guests, complete privacy for your surprise moment."
   },
   {
-    question: "Can we customize decorations and menu?",
-    answer: "Fully customizable—balloons, cakes, themed backdrops, vegan mocktails for your anniversary or pregnancy announcement."
+    question: "Can I customize the surprise decorations?",
+    answer: "Yes! We offer fully customizable surprise setups - choose themes, colors, special messages, photo walls, and more to make it truly personal."
   },
   {
-    question: "Is Friends Factory Cafe suitable for small groups or couples only?",
-    answer: "Perfect for 2-3 people; intimate couple setups or family celebrations with private rooftop privacy."
+    question: "What if my partner arrives before I finish setting up?",
+    answer: "No worries! We handle all the setup before your arrival. Just bring your partner at the scheduled time and watch their surprised reaction!"
   },
   {
-    question: "Is your venue private and couple-friendly?",
-    answer: "Yes, absolutely! Our venue is exclusively for couples. You'll have complete privacy with no other guests during your booking slot. It's a safe, comfortable, and romantic space."
+    question: "Do you offer midnight surprise celebrations?",
+    answer: "Yes! Midnight birthday surprises are our specialty. We can arrange celebrations starting at 11:30 PM for that perfect 12 AM surprise moment."
   },
   {
     question: "What is your cancellation policy?",
@@ -157,13 +157,13 @@ function GallerySection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
-            <ImageIcon className="h-4 w-4 mr-2" /> Our Gallery
+            <ImageIcon className="h-4 w-4 mr-2" /> Surprise Gallery
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
-            Magical Moments at Friends Factory
+            Real Surprise Moments at Friends Factory
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            A glimpse into the romantic experiences we create for couples. Every setup is designed to make your moments unforgettable.
+            Browse through real surprise setups and reactions. Every setup is designed to create jaw-dropping moments for your loved one.
           </p>
         </div>
 
@@ -277,13 +277,13 @@ function BlogSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
-            Our Blog
+            Surprise Ideas
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
-            Celebration Ideas & Inspiration
+            Surprise Planning Tips & Ideas
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Tips, guides, and ideas to help you plan the perfect celebration in Vadodara
+            Expert tips, creative ideas, and guides to help you plan the perfect surprise in Vadodara
           </p>
         </div>
 
@@ -347,10 +347,11 @@ export default function FFCHomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const reviewsRef = useRef<HTMLDivElement>(null);
   
-  // Hero slider images
+  // Hero slider images - using actual gallery photos for surprise celebrations
   const heroSlides = [
-    { src: '/images/hero-slider/Slide1.png', alt: 'Romantic Candlelight Dinner Setup at Friends Factory Cafe Vadodara' },
-    { src: '/images/hero-slider/Slide2.png', alt: 'Rooftop Celebration Setup with Fairy Lights Vadodara' },
+    { src: '/images/gallery/IMG_20260119_194048552.jpg', alt: 'Surprise Date Setup with Romantic Decorations at Friends Factory Cafe Vadodara' },
+    { src: '/images/gallery/IMG_20260119_194103350.jpg', alt: 'Romantic Surprise Celebration Setup with Fairy Lights Vadodara' },
+    { src: '/images/gallery/IMG_20260119_194142817.jpg', alt: 'Birthday Surprise Decoration at Friends Factory Cafe Vadodara' },
   ];
 
   // Auto-slide effect
@@ -417,23 +418,23 @@ export default function FFCHomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <Badge className="mb-6 bg-white/20 text-white border-white/30 text-sm px-4 py-1">
-                <Sparkles className="h-4 w-4 mr-2" /> Couples Only Experience in Vadodara
+                <Sparkles className="h-4 w-4 mr-2" /> #1 Surprise Planning Experts in Vadodara
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight font-serif">
-                Friends Factory Cafe
+                Plan The Perfect <span className="text-amber-200">Surprise</span> For Your Love
               </h1>
               <p className="text-xl md:text-2xl mb-4 text-white/90 max-w-2xl">
-                {siteConfig.tagline}
+                Vadodara's Most Trusted Surprise Celebration Venue
               </p>
               <p className="text-lg mb-8 text-white/80 max-w-xl">
-                Premium romantic celebration venue for couples. Birthday surprises, candlelight dinners, anniversaries, proposals & more.
+                Birthday surprises, anniversary surprises, surprise dates, surprise proposals & romantic surprise celebrations — all in a 100% private rooftop setting.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link href="/packages">
                   <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50 text-lg px-8 py-6 w-full sm:w-auto">
                     <Gift className="h-5 w-5 mr-2" />
-                    View Packages
+                    Plan a Surprise
                   </Button>
                 </Link>
                 <a href={`tel:${siteConfig.phone}`}>
@@ -452,7 +453,7 @@ export default function FFCHomePage() {
                   <Star className="h-4 w-4" /> 4.9★ Rated
                 </span>
                 <span className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
-                  <Users className="h-4 w-4" /> 3000+ Couples
+                  <Gift className="h-4 w-4" /> 3000+ Surprises
                 </span>
               </div>
             </div>
@@ -480,10 +481,10 @@ export default function FFCHomePage() {
               Our Packages
             </Badge>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 font-serif">
-              Our Romantic Celebration Packages
+              Surprise Celebration Packages
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
-              8 unique romantic setups designed to make your celebration unforgettable
+              8 stunning surprise setups designed to leave your loved one speechless
             </p>
           </div>
           
@@ -533,13 +534,13 @@ export default function FFCHomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
-              Our Services
+              Surprise Services
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
-              Perfect For Every Celebration
+              Types of Surprise Celebrations
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              From intimate candlelight dinners to grand proposals, we create magical moments for every special occasion.
+              From birthday surprises to proposal surprises, we specialize in creating unforgettable moments for every occasion.
             </p>
           </div>
           
@@ -566,10 +567,10 @@ export default function FFCHomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
-              What You Get
+              Why Choose Us
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
-              The Complete Experience
+              The Complete Surprise Experience
             </h2>
           </div>
           
@@ -593,13 +594,13 @@ export default function FFCHomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-4 bg-amber-500/20 text-amber-400 border-amber-500/30">
-                Our Menu
+                Surprise Menu
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
-                Curated Café-Style Delicacies
+                Curated Menu for Surprise Celebrations
               </h2>
               <p className="text-gray-300 mb-8">
-                Crafted for Romantic Dates & Private Celebrations
+                Delicious Food & Desserts Included in Every Surprise Package
               </p>
               
               <div className="space-y-4">
@@ -664,10 +665,10 @@ export default function FFCHomePage() {
               <MapPin className="h-4 w-4 mr-2" /> Areas We Serve
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
-              Serving All of Vadodara
+              Surprise Celebrations Across Vadodara
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We bring romantic celebrations to couples across all areas of Vadodara
+              Planning a surprise for your loved one? We serve couples from every corner of Vadodara!
             </p>
           </div>
           
@@ -691,7 +692,7 @@ export default function FFCHomePage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-serif mb-2">
-                Our Love Stories Shine (Testimonials)
+                Surprise Success Stories
               </h2>
             </div>
             <a 

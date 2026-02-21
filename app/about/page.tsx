@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import FFCAboutPage from '@/components/ffc-about-page';
 
 export const metadata: Metadata = {
-  title: 'About Us | Friends Factory Cafe Vadodara',
-  description: 'Learn about Friends Factory Cafe - Vadodara\'s premier romantic celebration venue for couples. Our story, mission, and commitment to creating unforgettable moments.',
-  keywords: 'about friends factory cafe, romantic cafe vadodara, couple cafe story, celebration venue vadodara',
+  title: 'About Us | Friends Factory Cafe - Surprise Planning Experts Vadodara',
+  description: 'Meet Friends Factory Cafe - Vadodara\'s #1 surprise planning experts. We specialize in birthday surprises, anniversary surprises, surprise proposals & romantic surprise celebrations. 3000+ surprises delivered!',
+  keywords: 'about friends factory cafe, surprise planners vadodara, surprise planning experts, best surprise venue vadodara',
 };
 
 export default function AboutPage() {

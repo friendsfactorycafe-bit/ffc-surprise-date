@@ -600,7 +600,31 @@ The entire romantic birthday surprise planning process is handled with care and 
   }
 };
 
+// Import the master content index for comprehensive unique content
+import { getUniqueKeywordContent, SurpriseKeywordContent } from './ffc-surprise-content-index';
+
 // Helper function to get content by slug
+// First checks the master surprise content index (38+ unique pages)
+// Then falls back to the birthday content in this file
 export function getKeywordContent(slug: string): UniqueKeywordContent | null {
+  // First try the comprehensive surprise content (38+ keywords)
+  const surpriseContent = getUniqueKeywordContent(slug);
+  if (surpriseContent) {
+    // Map SurpriseKeywordContent to UniqueKeywordContent format
+    return {
+      slug,
+      heroSubtitle: surpriseContent.heroSubtitle,
+      introduction: surpriseContent.introduction,
+      sections: surpriseContent.sections,
+      whyChooseUs: surpriseContent.whyChooseUs,
+      features: surpriseContent.features,
+      process: surpriseContent.process,
+      faqs: surpriseContent.faqs,
+      testimonial: surpriseContent.testimonial,
+      closingText: surpriseContent.closingText,
+    };
+  }
+  
+  // Fall back to the birthday content in this file
   return birthdaySurpriseContent[slug] || null;
 }

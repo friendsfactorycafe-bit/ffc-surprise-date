@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import FFCContactPage from '@/components/ffc-contact-page';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Friends Factory Cafe Vadodara',
-  description: 'Get in touch with Friends Factory Cafe Vadodara. Book your romantic celebration, ask questions, or visit us. Call +91 74878 88730.',
-  keywords: 'contact friends factory cafe, book celebration vadodara, romantic venue contact, couple cafe vadodara contact',
+  title: 'Contact Us | Plan Your Surprise - Friends Factory Cafe Vadodara',
+  description: 'Ready to plan the perfect surprise? Contact Friends Factory Cafe Vadodara. Book your surprise celebration, get ideas, or visit us. Call +91 74878 88730.',
+  keywords: 'contact friends factory cafe, book surprise vadodara, surprise planning contact, surprise venue vadodara contact',
 };
 
 export default function ContactPage() {

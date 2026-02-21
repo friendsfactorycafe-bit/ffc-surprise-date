@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Star, Check, Phone, MessageCircle, MapPin, Gift, Clock, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,6 +15,15 @@ import { ServiceCategory, ServiceKeyword, packages, vadodaraAreas, siteConfig, f
 import { generateKeywordPageContent } from '@/lib/ffc-unique-content';
 import { getKeywordContent, UniqueKeywordContent } from '@/lib/ffc-keyword-content';
 
+// Hero images for keyword pages
+const heroImages = [
+  '/images/gallery/IMG_20260119_194048552.jpg',
+  '/images/gallery/IMG_20260119_194103350.jpg',
+  '/images/gallery/IMG_20260119_194142817.jpg',
+  '/images/gallery/IMG_20260119_194156467.jpg',
+  '/images/gallery/IMG_20260119_194210164.jpg',
+];
+
 interface KeywordPageProps {
   service: ServiceCategory;
   keyword: ServiceKeyword;
@@ -22,6 +32,10 @@ interface KeywordPageProps {
 export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
   // Get related packages
   const relatedPackages = packages.slice(0, 4);
+  
+  // Get a consistent hero image based on keyword slug
+  const heroImageIndex = keyword.slug.length % heroImages.length;
+  const heroImage = heroImages[heroImageIndex];
 
   // Get related keywords (excluding current)
   const relatedKeywords = service.keywords.filter(k => k.slug !== keyword.slug).slice(0, 6);
@@ -60,13 +74,13 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <Badge className="mb-4 bg-white/20 text-white border-white/30">
-                {service.emoji} Friends Factory Cafe
+                🎁 Surprise Planning Experts
               </Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-serif">
                 {keyword.h1}
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-                {hasUniqueContent ? handcraftedContent!.heroSubtitle : `Create magical ${keyword.title.toLowerCase()} moments at Friends Factory Cafe. Premium romantic celebration venue with stunning setups and unforgettable experiences.`}
+                {hasUniqueContent ? handcraftedContent!.heroSubtitle : `Plan the perfect ${keyword.title.toLowerCase()} at Friends Factory Cafe Vadodara. 100% private venue with stunning decorations, delicious food & unforgettable memories.`}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -84,21 +98,33 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
               
               <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
                 <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                  <Star className="h-4 w-4" /> 4.9★ Rating
+                  <Star className="h-4 w-4" /> 4.9★ Rated
                 </span>
                 <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
                   <Check className="h-4 w-4" /> 100% Private
                 </span>
                 <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                  <Heart className="h-4 w-4" /> Couples Only
+                  <Gift className="h-4 w-4" /> 3000+ Surprises
                 </span>
               </div>
             </div>
             
-            {/* Hero Visual */}
+            {/* Hero Visual - Real Photo */}
             <div className="hidden lg:flex justify-center">
-              <div className="w-72 h-72 rounded-full bg-white/10 flex items-center justify-center">
-                <span className="text-[7rem]">{service.emoji}</span>
+              <div className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src={heroImage}
+                  alt={`${keyword.title} at Friends Factory Cafe Vadodara`}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4 text-center">
+                  <span className="bg-white/90 text-amber-600 px-3 py-1 rounded-full text-sm font-semibold">
+                    Real Surprise Setup
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -128,14 +154,14 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
                   </h3>
                   <div className="grid md:grid-cols-2 gap-3">
                     {(hasUniqueContent ? handcraftedContent!.features : [
-                      "3 Mesmerizing Hours of Private Celebration",
-                      "Welcome Drink & Celebration Cake",
-                      "Romantic Decorations & Setup",
-                      "Candle-Lit Ambiance",
-                      "Soft Romantic Music",
-                      "Photo-Ready Backdrop",
-                      "Delicious Café-Style Food",
-                      "Panoramic City Views"
+                      "3 Magical Hours of Private Surprise",
+                      "Welcome Drink & Surprise Cake",
+                      "Stunning Balloon & Flower Decorations",
+                      "Candle-Lit Romantic Ambiance",
+                      "Soft Music for the Perfect Mood",
+                      "Photo-Ready Surprise Setup",
+                      "Delicious Food & Desserts",
+                      "100% Private Rooftop Venue"
                     ]).map((item, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-amber-600 flex-shrink-0" />
@@ -215,7 +241,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
 
                 {/* Testimonials */}
                 <div className="bg-amber-50 rounded-xl p-6 mb-8">
-                  <h3 className="text-xl font-bold mb-4">💬 What Couples Say About {keyword.title}</h3>
+                  <h3 className="text-xl font-bold mb-4">💬 Real Surprise Reviews</h3>
                   {hasUniqueContent ? (
                     <div className="space-y-3">
                       <p className="text-gray-600 italic">"{handcraftedContent!.testimonial.text}"</p>
@@ -241,7 +267,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
               {/* Packages */}
               <div className="mt-12">
                 <h2 className="text-2xl font-bold mb-6 font-serif">
-                  {keyword.title} Packages
+                  Surprise Packages for {keyword.title}
                 </h2>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -313,7 +339,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold mb-4 font-serif">
-              Related {service.name} Services
+              More Surprise Services You'll Love
             </h2>
           </div>
           
@@ -342,10 +368,10 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-amber-100 text-amber-700 border-amber-200">
-              <MapPin className="h-4 w-4 mr-2" /> Service Areas
+              <MapPin className="h-4 w-4 mr-2" /> We Serve All Vadodara
             </Badge>
             <h2 className="text-2xl font-bold mb-4 font-serif">
-              {keyword.title} Across Vadodara
+              Plan Your Surprise From Any Area
             </h2>
           </div>
           
@@ -391,7 +417,7 @@ export default function FFCKeywordPage({ service, keyword }: KeywordPageProps) {
       <section className="py-16 bg-gradient-to-br from-amber-600 to-orange-600 text-white">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 font-serif">
-            Ready for Your {keyword.title}?
+            Ready to Plan the Perfect Surprise?
           </h2>
           <p className="text-white/90 mb-8 whitespace-pre-line">
             {hasUniqueContent ? handcraftedContent!.closingText : generatedContent.closingCta}

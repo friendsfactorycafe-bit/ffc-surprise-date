@@ -5,8 +5,8 @@ import { getAreaBySlug } from '@/lib/ffc-config';
 const area = getAreaBySlug('gorwa-vadodara');
 
 export const metadata: Metadata = {
-  title: area ? `Candlelight Dinner in ${area.name} | Friends Factory Cafe Vadodara` : 'Friends Factory Cafe',
-  description: area ? `Book romantic candlelight dinner in ${area.name}, Vadodara. Premium rooftop celebrations, birthday surprises, anniversary dinners & proposals at Friends Factory Cafe.` : '',
+  title: area ? `Surprise Celebrations Near ${area.name} | Friends Factory Cafe Vadodara` : 'Friends Factory Cafe',
+  description: area ? `Plan amazing birthday surprises, anniversary surprises & romantic surprises near ${area.name}, Vadodara. 100% private rooftop venue with stunning decorations at Friends Factory Cafe.` : '',
 };
 
 export default function Page() {

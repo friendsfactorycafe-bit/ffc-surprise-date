@@ -20,13 +20,13 @@ export default function FFCPackagesPage() {
       <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-amber-700 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <Badge className="mb-4 bg-white/20 text-white border-white/30">
-            <Gift className="h-4 w-4 mr-2" /> 8 Unique Setups
+            <Gift className="h-4 w-4 mr-2" /> 8 Stunning Surprise Setups
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
-            Our Packages
+            Surprise Packages
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Choose from 8 stunning romantic setups designed to make your celebration unforgettable
+            Choose from 8 jaw-dropping surprise setups designed to leave your loved one speechless!
           </p>
         </div>
       </section>
@@ -76,20 +76,20 @@ export default function FFCPackagesPage() {
       <section className="py-16 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 font-serif">What's Included in Every Package</h2>
-            <p className="text-gray-600">All our packages come with these essential elements</p>
+            <h2 className="text-3xl font-bold mb-4 font-serif">What's Included in Every Surprise</h2>
+            <p className="text-gray-600">Everything ready before your loved one arrives — just bring them!</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: "🕐", title: "3 Hours Private Time", desc: "Exclusive private celebration" },
-              { icon: "🥂", title: "Welcome Drink", desc: "Refreshing start to your evening" },
-              { icon: "🍰", title: "Celebration Cake", desc: "Complimentary cake included" },
-              { icon: "🎶", title: "Romantic Music", desc: "Soft melodies throughout" },
-              { icon: "🕯️", title: "Candle Setup", desc: "Warm candlelight ambiance" },
-              { icon: "🎈", title: "Decorations", desc: "Beautiful thematic decor" },
-              { icon: "🛋️", title: "Comfortable Seating", desc: "Cozy seating arrangements" },
-              { icon: "📸", title: "Photo-Ready Setup", desc: "Instagram-worthy backdrops" },
+              { icon: "🕐", title: "3 Hours Private Time", desc: "100% private surprise celebration" },
+              { icon: "🥂", title: "Welcome Drink", desc: "Refreshing drink upon arrival" },
+              { icon: "🎂", title: "Surprise Cake", desc: "Complimentary celebration cake" },
+              { icon: "🎶", title: "Romantic Music", desc: "Soft melodies for the moment" },
+              { icon: "🕯️", title: "Candle Setup", desc: "Beautiful candlelight ambiance" },
+              { icon: "🎈", title: "Balloon Decorations", desc: "Stunning surprise decor" },
+              { icon: "🌹", title: "Flower Setup", desc: "Fresh flowers for romance" },
+              { icon: "📸", title: "Photo-Ready Setup", desc: "Capture their reaction!" },
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-lg p-6 text-center shadow-sm">
                 <span className="text-4xl mb-3 block">{item.icon}</span>

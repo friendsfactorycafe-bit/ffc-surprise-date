@@ -141,13 +141,15 @@ export function FFCFooter() {
   const [showAllKeywords, setShowAllKeywords] = useState(false);
   const [showAllAreas, setShowAllAreas] = useState(false);
   
-  // Get all keywords from all service categories
+  // Get only SURPRISE-related keywords from all service categories
   const allKeywords = serviceCategories.flatMap(category => 
-    category.keywords.map(keyword => ({
-      slug: keyword.slug,
-      title: keyword.title,
-      serviceSlug: category.slug
-    }))
+    category.keywords
+      .filter(keyword => keyword.slug.includes('surprise'))
+      .map(keyword => ({
+        slug: keyword.slug,
+        title: keyword.title,
+        serviceSlug: category.slug
+      }))
   );
   
   // Display first 20 keywords initially, all when expanded
@@ -238,7 +240,7 @@ export function FFCFooter() {
 
         {/* SEO Links Section - Keywords */}
         <div className="border-t border-gray-800 mt-12 pt-8">
-          <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wider">Popular Services in Vadodara</h4>
+          <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wider">Surprise Celebration Services in Vadodara</h4>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {visibleKeywords.map((keyword) => (
               <Link 
@@ -258,7 +260,7 @@ export function FFCFooter() {
               {showAllKeywords ? (
                 <>Show Less <ChevronUp className="h-3 w-3" /></>
               ) : (
-                <>Show All {allKeywords.length} Services <ChevronDown className="h-3 w-3" /></>
+                <>Show All {allKeywords.length} Surprise Services <ChevronDown className="h-3 w-3" /></>
               )}
             </button>
           )}

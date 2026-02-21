@@ -35,10 +35,10 @@ export default function FFCAboutPage() {
             <Heart className="h-4 w-4 mr-2" /> About Us
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
-            About Friends Factory Cafe
+            Vadodara's #1 Surprise Planning Experts
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Vadodara's Premier Destination for Candlelight Dinners & Romantic Celebrations
+            3000+ Jaw-Dropping Surprises Delivered — We Make Them Say WOW!
           </p>
         </div>
       </section>
@@ -52,20 +52,20 @@ export default function FFCAboutPage() {
                 Our Story
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
-                Where Love Stories Unfold Naturally
+                How We Became Vadodara's Surprise Experts
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  At <strong>Friends Factory Cafe</strong> in Vadodara's Gotri area, we understand the chaos of modern life leaves little room for romance. Couples crave intimate moments to express love, but finding the right venue—a place blending privacy, beauty, and magic—remains elusive.
+                  At <strong>Friends Factory Cafe</strong>, we noticed something: planning the perfect surprise is HARD. Keeping it secret, finding the right venue, coordinating decorations, food, timing... it's overwhelming!
                 </p>
                 <p>
-                  That's why we transformed a stunning <strong>rooftop into Vadodara's premier destination for candlelight dinners</strong>, complete with fairy lights, floral arches, and personalized decorations. Our romantic rooftop cafe offers the perfect escape for couples seeking a private celebration venue in Vadodara.
+                  That's when we had an idea: <strong>What if we handled EVERYTHING?</strong> From balloon decorations and fairy lights to surprise cakes and romantic setups — all you have to do is bring your loved one (blindfolded, of course! 😉).
                 </p>
                 <p>
-                  From heartfelt <strong>birthday surprises</strong> and <strong>anniversary celebrations</strong> to unforgettable <strong>marriage proposals</strong>, engagement reveals, <strong>pre-wedding shoots</strong>, pregnancy announcements, and last candlelight dinners before marriage, we've hosted <strong>500+ magical evenings</strong>.
+                  Since then, we've planned <strong>3000+ surprises</strong> — birthday surprises, anniversary surprises, surprise proposals, surprise dates, and midnight birthday surprises. Every single one designed to make their jaw DROP!
                 </p>
                 <p className="font-medium text-amber-700">
-                  Our mission: Create spaces where love stories unfold naturally.
+                  Our mission: Help you create the "I CAN'T BELIEVE YOU DID THIS!" moment.
                 </p>
               </div>
               <div className="mt-6">
@@ -86,8 +86,8 @@ export default function FFCAboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-lg font-semibold">500+ Magical Evenings</p>
-                  <p className="text-sm opacity-90">Creating memories since 2020</p>
+                  <p className="text-lg font-semibold">3000+ Jaw-Dropping Surprises</p>
+                  <p className="text-sm opacity-90">Creating WOW moments since 2020</p>
                 </div>
               </div>
             </div>
@@ -100,10 +100,10 @@ export default function FFCAboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { icon: Users, number: "500+", label: "Magical Evenings" },
+              { icon: Users, number: "3000+", label: "Surprises Delivered" },
               { icon: Star, number: "4.9", label: "Google Rating" },
-              { icon: Award, number: "8", label: "Unique Setups" },
-              { icon: Clock, number: "5+", label: "Years of Love" },
+              { icon: Award, number: "8", label: "Surprise Setups" },
+              { icon: Clock, number: "5+", label: "Years of Magic" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-3">
@@ -141,20 +141,20 @@ export default function FFCAboutPage() {
                 Our Team
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
-                Behind Every Glowing Smile
+                Your Secret Surprise Squad
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Meet the passionate team behind the magic at <strong>Friends Factory Cafe</strong>. Committed to crafting unforgettable experiences, our dedicated staff is here to ensure that every detail of your visit is perfect.
+                  Meet the team that makes surprise magic happen! We're not just staff — we're your partners in creating unforgettable moments.
                 </p>
                 <p>
-                  From our talented chefs who bring culinary dreams to life, to our attentive servers who anticipate your every need, each member of our team is dedicated to creating moments of joy and romance for you and your loved one.
+                  From our decoration experts who create stunning setups, to our friendly team who keeps everything secret until the big reveal — we handle every detail so your surprise goes PERFECTLY.
                 </p>
                 <p>
-                  Whether you're planning a <strong>candlelight dinner in Vadodara</strong>, a <strong>birthday surprise for your girlfriend</strong>, an <strong>anniversary celebration</strong>, or a <strong>romantic proposal</strong>, our team handles everything from setup to cleanup so you can focus on love.
+                  Whether you're planning a <strong>birthday surprise</strong>, <strong>anniversary surprise</strong>, <strong>surprise proposal</strong>, or a romantic <strong>surprise date</strong>, our team ensures the setup is ready, the cake is perfect, and your loved one's reaction is PRICELESS!
                 </p>
                 <p className="font-medium text-amber-700">
-                  Join us and let us make your evening truly extraordinary.
+                  Your secret is safe with us. Let's make them cry happy tears! 😭❤️
                 </p>
               </div>
             </div>
@@ -171,16 +171,16 @@ export default function FFCAboutPage() {
                 Why Choose Us
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
-                What Sets Us Apart in Vadodara
+                Why We're Vadodara's #1 Surprise Planners
               </h2>
               <div className="space-y-4">
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 text-amber-600" />
+                    <Shield className="h-5 w-5 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Prime Gotri Rooftop Location</h3>
-                    <p className="text-gray-600">Breathtaking city views, private setups away from crowds on Sevasi-Canal Road. The best rooftop cafe in Vadodara for couples seeking privacy.</p>
+                    <h3 className="font-semibold text-lg mb-1">100% Secret & Private</h3>
+                    <p className="text-gray-600">No other guests during your booking. Your surprise stays completely secret until the big reveal!</p>
                   </div>
                 </div>
                 
@@ -189,8 +189,8 @@ export default function FFCAboutPage() {
                     <Award className="h-5 w-5 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Custom Celebration Packages</h3>
-                    <p className="text-gray-600">Starting ₹4700, including mocktails, cakes, photographer, and themed decor for birthday surprises, anniversary celebrations, proposals, and more.</p>
+                    <h3 className="font-semibold text-lg mb-1">8 Stunning Surprise Setups</h3>
+                    <p className="text-gray-600">Balloon arches, fairy lights, flower decorations, candles, neon signs — every setup is designed for maximum WOW factor!</p>
                   </div>
                 </div>
                 
@@ -199,8 +199,8 @@ export default function FFCAboutPage() {
                     <Heart className="h-5 w-5 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">Pan-India Appeal, Local Heart</h3>
-                    <p className="text-gray-600">Serving Vadodara couples while inspiring visitors with our Instagram-famous romantic setups and pre-wedding photoshoot venues.</p>
+                    <h3 className="font-semibold text-lg mb-1">Everything Included</h3>
+                    <p className="text-gray-600">Decorations, surprise cake, food, drinks, soft music, 3 hours private time — the complete surprise package!</p>
                   </div>
                 </div>
                 
@@ -209,8 +209,8 @@ export default function FFCAboutPage() {
                     <Star className="h-5 w-5 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">5-Star Experience Guaranteed</h3>
-                    <p className="text-gray-600">From setup to cleanup, our team handles everything so you focus on love. Couple-friendly cafe with complete privacy.</p>
+                    <h3 className="font-semibold text-lg mb-1">3000+ Happy Surprises</h3>
+                    <p className="text-gray-600">4.9★ rating on Google. Real reviews from real couples who trusted us with their most special moments.</p>
                   </div>
                 </div>
               </div>
@@ -225,8 +225,8 @@ export default function FFCAboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-lg font-semibold">5-Star Experience</p>
-                  <p className="text-sm opacity-90">Trusted by 500+ couples</p>
+                  <p className="text-lg font-semibold">Surprise Planning Experts</p>
+                  <p className="text-sm opacity-90">Trusted by 3000+ couples</p>
                 </div>
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function FFCAboutPage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-serif mb-2">
-                Our Love Stories Shine (Testimonials)
+                Real Surprise Reactions (Testimonials)
               </h2>
             </div>
             <a 

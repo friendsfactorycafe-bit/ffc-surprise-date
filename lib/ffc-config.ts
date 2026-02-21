@@ -66,8 +66,8 @@ export interface AreaConfig {
 // ==================== SITE CONFIG ====================
 export const siteConfig = {
   name: "Friends Factory Cafe",
-  tagline: "Where Every Occasion Turns Into a Forever Memory Under the Stars",
-  description: "Premium romantic celebration venue in Vadodara for couples. Birthday surprises, candlelight dinners, anniversary celebrations, proposals, pre-wedding shoots & more.",
+  tagline: "Vadodara's #1 Surprise Planning Experts — Make Them Say WOW! 🎁",
+  description: "Plan the perfect surprise in Vadodara! Birthday surprises, anniversary surprises, surprise dates, surprise proposals & romantic surprise celebrations at our 100% private rooftop venue.",
   phone: "+91 7487888730",
   whatsapp: "917487888730",
   email: "hello@friendsfactorycafe.com",
@@ -762,11 +762,39 @@ export const serviceCategories: ServiceCategory[] = [
       { slug: "surprise-date-setup-vadodara", title: "Surprise Date Setup", h1: "Surprise Date Setup in Vadodara", metaTitle: "Surprise Date Setup Vadodara | Beautiful Arrangements", metaDescription: "Book a surprise date setup in Vadodara with beautiful arrangements at Friends Factory Cafe rooftop." },
       { slug: "surprise-date-places-vadodara", title: "Surprise Date Places", h1: "Best Surprise Date Places in Vadodara", metaTitle: "Surprise Date Places Vadodara | Romantic Venues", metaDescription: "Find the best surprise date places in Vadodara. Friends Factory Cafe offers private rooftop celebrations." },
       { slug: "surprise-date-night-vadodara", title: "Surprise Date Night", h1: "Surprise Date Night in Vadodara", metaTitle: "Surprise Date Night Vadodara | Magical Evening", metaDescription: "Plan a magical surprise date night in Vadodara with candlelight and music at Friends Factory Cafe." },
-      { slug: "unique-date-ideas-vadodara", title: "Unique Date Ideas", h1: "Unique Date Ideas in Vadodara", metaTitle: "Unique Date Ideas Vadodara | Stand Out", metaDescription: "Find unique date ideas in Vadodara to make your evening special at Friends Factory Cafe rooftop." },
-      { slug: "special-date-vadodara", title: "Special Date", h1: "Special Date Setup in Vadodara", metaTitle: "Special Date Vadodara | Memorable Moments", metaDescription: "Plan a special date in Vadodara with romantic setup and decorations at Friends Factory Cafe." },
-      { slug: "rooftop-date-vadodara", title: "Rooftop Date", h1: "Rooftop Date in Vadodara", metaTitle: "Rooftop Date Vadodara | City Views", metaDescription: "Experience a rooftop date in Vadodara with stunning city views at Friends Factory Cafe." },
-      { slug: "couple-date-vadodara", title: "Couple Date", h1: "Couple Date Experience in Vadodara", metaTitle: "Couple Date Vadodara | Romantic Evening", metaDescription: "Enjoy a couple date experience in Vadodara with romantic ambiance at Friends Factory Cafe." },
-      { slug: "surprise-date-decoration-vadodara", title: "Surprise Date Decoration", h1: "Surprise Date Decoration in Vadodara", metaTitle: "Surprise Date Decoration Vadodara | Beautiful Setup", metaDescription: "Beautiful surprise date decoration in Vadodara with flowers and candles at Friends Factory Cafe." }
+      { slug: "surprise-date-decoration-vadodara", title: "Surprise Date Decoration", h1: "Surprise Date Decoration in Vadodara", metaTitle: "Surprise Date Decoration Vadodara | Beautiful Setup", metaDescription: "Beautiful surprise date decoration in Vadodara with flowers and candles at Friends Factory Cafe." },
+      // NEW: Surprise Gift & Dinner Pages
+      { slug: "surprise-gift-for-boyfriend-vadodara", title: "Surprise Gift for Boyfriend", h1: "Best Surprise Gift Ideas for Boyfriend in Vadodara", metaTitle: "Surprise Gift for Boyfriend Vadodara | Make Him Happy", metaDescription: "Find the best surprise gift ideas for your boyfriend in Vadodara. Romantic experience gift at Friends Factory Cafe." },
+      { slug: "surprise-gift-for-girlfriend-vadodara", title: "Surprise Gift for Girlfriend", h1: "Romantic Surprise Gift for Girlfriend in Vadodara", metaTitle: "Surprise Gift for Girlfriend Vadodara | Make Her Smile", metaDescription: "Plan a romantic surprise gift experience for your girlfriend in Vadodara at Friends Factory Cafe rooftop." },
+      { slug: "surprise-dinner-for-wife-vadodara", title: "Surprise Dinner for Wife", h1: "Surprise Dinner for Wife in Vadodara", metaTitle: "Surprise Dinner for Wife Vadodara | Special Evening", metaDescription: "Plan a surprise dinner for your wife in Vadodara with romantic candlelight setup at Friends Factory Cafe." },
+      { slug: "surprise-dinner-for-husband-vadodara", title: "Surprise Dinner for Husband", h1: "Surprise Dinner for Husband in Vadodara", metaTitle: "Surprise Dinner for Husband Vadodara | Make His Day", metaDescription: "Create a surprise dinner for your husband in Vadodara with elegant rooftop setup at Friends Factory Cafe." },
+      { slug: "surprise-party-for-boyfriend-vadodara", title: "Surprise Party for Boyfriend", h1: "Surprise Party for Boyfriend in Vadodara", metaTitle: "Surprise Party for Boyfriend Vadodara | Special Celebration", metaDescription: "Plan a surprise party for your boyfriend in Vadodara with decorations and cake at Friends Factory Cafe." },
+      { slug: "surprise-party-for-girlfriend-vadodara", title: "Surprise Party for Girlfriend", h1: "Surprise Party for Girlfriend in Vadodara", metaTitle: "Surprise Party for Girlfriend Vadodara | Make Her Feel Special", metaDescription: "Create a surprise party for your girlfriend in Vadodara with beautiful decorations at Friends Factory Cafe." },
+      { slug: "surprise-room-decoration-vadodara", title: "Surprise Room Decoration", h1: "Surprise Room Decoration in Vadodara", metaTitle: "Surprise Room Decoration Vadodara | Stunning Setup", metaDescription: "Beautiful surprise room decoration in Vadodara with balloons, flowers, and candles at Friends Factory Cafe." },
+      { slug: "surprise-balloon-decoration-vadodara", title: "Surprise Balloon Decoration", h1: "Surprise Balloon Decoration in Vadodara", metaTitle: "Surprise Balloon Decoration Vadodara | Creative Setup", metaDescription: "Stunning surprise balloon decoration in Vadodara with heart shapes and arches at Friends Factory Cafe." },
+      { slug: "surprise-celebration-venue-vadodara", title: "Surprise Celebration Venue", h1: "Best Surprise Celebration Venue in Vadodara", metaTitle: "Surprise Celebration Venue Vadodara | Private Space", metaDescription: "Find the best surprise celebration venue in Vadodara. Friends Factory Cafe offers private rooftop setup." },
+      { slug: "surprise-anniversary-date-vadodara", title: "Surprise Anniversary Date", h1: "Surprise Anniversary Date Ideas in Vadodara", metaTitle: "Surprise Anniversary Date Vadodara | Romantic Plans", metaDescription: "Plan a surprise anniversary date in Vadodara with romantic setup and candlelight at Friends Factory Cafe." },
+      // NEW: Occasion-Based Surprise Pages
+      { slug: "first-date-surprise-vadodara", title: "First Date Surprise", h1: "First Date Surprise Ideas in Vadodara", metaTitle: "First Date Surprise Vadodara | Make It Memorable", metaDescription: "Make your first date memorable with a surprise setup in Vadodara at Friends Factory Cafe rooftop." },
+      { slug: "honeymoon-surprise-vadodara", title: "Honeymoon Surprise", h1: "Honeymoon Surprise Celebration in Vadodara", metaTitle: "Honeymoon Surprise Vadodara | Romantic Start", metaDescription: "Start your honeymoon with a surprise celebration in Vadodara at Friends Factory Cafe rooftop." },
+      { slug: "wedding-anniversary-surprise-vadodara", title: "Wedding Anniversary Surprise", h1: "Wedding Anniversary Surprise in Vadodara", metaTitle: "Wedding Anniversary Surprise Vadodara | Special Celebration", metaDescription: "Plan a wedding anniversary surprise in Vadodara with romantic decorations at Friends Factory Cafe." },
+      { slug: "1st-anniversary-surprise-vadodara", title: "1st Anniversary Surprise", h1: "1st Anniversary Surprise Ideas in Vadodara", metaTitle: "1st Anniversary Surprise Vadodara | Paper Anniversary", metaDescription: "Celebrate your 1st anniversary with a surprise celebration in Vadodara at Friends Factory Cafe." },
+      { slug: "5th-anniversary-surprise-vadodara", title: "5th Anniversary Surprise", h1: "5th Anniversary Surprise in Vadodara", metaTitle: "5th Anniversary Surprise Vadodara | Wood Anniversary", metaDescription: "Plan a memorable 5th anniversary surprise in Vadodara with romantic setup at Friends Factory Cafe." },
+      { slug: "25th-birthday-surprise-vadodara", title: "25th Birthday Surprise", h1: "25th Birthday Surprise Ideas in Vadodara", metaTitle: "25th Birthday Surprise Vadodara | Quarter Century", metaDescription: "Celebrate your 25th birthday with a surprise party in Vadodara at Friends Factory Cafe rooftop." },
+      { slug: "30th-birthday-surprise-vadodara", title: "30th Birthday Surprise", h1: "30th Birthday Surprise in Vadodara", metaTitle: "30th Birthday Surprise Vadodara | Milestone Birthday", metaDescription: "Plan a special 30th birthday surprise in Vadodara with decorations at Friends Factory Cafe." },
+      { slug: "50th-birthday-surprise-vadodara", title: "50th Birthday Surprise", h1: "50th Birthday Surprise in Vadodara", metaTitle: "50th Birthday Surprise Vadodara | Golden Birthday", metaDescription: "Celebrate 50th birthday with a golden surprise party in Vadodara at Friends Factory Cafe." },
+      // NEW: Seasonal Surprise Pages
+      { slug: "christmas-surprise-vadodara", title: "Christmas Surprise", h1: "Christmas Surprise Celebration in Vadodara", metaTitle: "Christmas Surprise Vadodara | Festive Celebration", metaDescription: "Plan a Christmas surprise celebration in Vadodara with festive decorations at Friends Factory Cafe." },
+      { slug: "new-year-surprise-vadodara", title: "New Year Surprise", h1: "New Year Surprise Celebration in Vadodara", metaTitle: "New Year Surprise Vadodara | Welcome New Year", metaDescription: "Celebrate New Year with a surprise party in Vadodara at Friends Factory Cafe rooftop under the stars." },
+      { slug: "diwali-surprise-vadodara", title: "Diwali Surprise", h1: "Diwali Surprise Celebration in Vadodara", metaTitle: "Diwali Surprise Vadodara | Festival of Lights", metaDescription: "Create a Diwali surprise celebration in Vadodara with lights and decorations at Friends Factory Cafe." },
+      { slug: "holi-surprise-vadodara", title: "Holi Surprise", h1: "Holi Surprise Celebration in Vadodara", metaTitle: "Holi Surprise Vadodara | Colorful Celebration", metaDescription: "Plan a colorful Holi surprise celebration in Vadodara at Friends Factory Cafe rooftop." },
+      { slug: "karwa-chauth-surprise-vadodara", title: "Karwa Chauth Surprise", h1: "Karwa Chauth Surprise for Wife in Vadodara", metaTitle: "Karwa Chauth Surprise Vadodara | Special Evening", metaDescription: "Plan a Karwa Chauth surprise for your wife in Vadodara with romantic dinner at Friends Factory Cafe." },
+      // NEW: Service-Based Surprise Pages
+      { slug: "private-surprise-party-vadodara", title: "Private Surprise Party", h1: "Private Surprise Party Venue in Vadodara", metaTitle: "Private Surprise Party Vadodara | Exclusive Venue", metaDescription: "Book a private surprise party venue in Vadodara with exclusive rooftop setup at Friends Factory Cafe." },
+      { slug: "rooftop-surprise-party-vadodara", title: "Rooftop Surprise Party", h1: "Rooftop Surprise Party in Vadodara", metaTitle: "Rooftop Surprise Party Vadodara | Under the Stars", metaDescription: "Plan a rooftop surprise party in Vadodara under the stars at Friends Factory Cafe." },
+      { slug: "surprise-proposal-planners-vadodara", title: "Surprise Proposal Planners", h1: "Surprise Proposal Planners in Vadodara", metaTitle: "Surprise Proposal Planners Vadodara | Say Yes", metaDescription: "Expert surprise proposal planners in Vadodara. We create perfect proposal moments at Friends Factory Cafe." },
+      { slug: "budget-surprise-party-vadodara", title: "Budget Surprise Party", h1: "Budget Surprise Party in Vadodara", metaTitle: "Budget Surprise Party Vadodara | Affordable", metaDescription: "Plan a budget-friendly surprise party in Vadodara with affordable packages at Friends Factory Cafe." },
+      { slug: "luxury-surprise-celebration-vadodara", title: "Luxury Surprise Celebration", h1: "Luxury Surprise Celebration in Vadodara", metaTitle: "Luxury Surprise Celebration Vadodara | Premium Experience", metaDescription: "Experience luxury surprise celebration in Vadodara with premium decorations at Friends Factory Cafe." }
     ]
   },
   {
@@ -864,6 +892,18 @@ export const serviceCategories: ServiceCategory[] = [
       { slug: "rooftop-sunset-dinner-vadodara", title: "Rooftop Sunset Dinner", h1: "Rooftop Sunset Dinner in Vadodara", metaTitle: "Rooftop Sunset Dinner Vadodara | Golden Hour Romance", metaDescription: "Book a magical rooftop sunset dinner in Vadodara. Watch the golden hour with your partner while enjoying romantic dinner at Friends Factory Cafe." }
     ]
   }
+];
+
+// ==================== SURPRISE-ONLY SERVICES FOR AREA PAGES ====================
+export const surpriseOnlyServices = [
+  { slug: "birthday-surprise-for-boyfriend-vadodara", name: "Birthday Surprise", emoji: "🎂", description: "Plan the perfect birthday surprise" },
+  { slug: "anniversary-surprise-for-husband-vadodara", name: "Anniversary Surprise", emoji: "💑", description: "Celebrate your love story" },
+  { slug: "surprise-proposal-vadodara", name: "Surprise Proposal", emoji: "💍", description: "Pop the question romantically" },
+  { slug: "surprise-date-ideas-vadodara", name: "Surprise Date", emoji: "🎁", description: "Create magical date moments" },
+  { slug: "midnight-birthday-surprise-vadodara", name: "Midnight Surprise", emoji: "🌙", description: "12 AM birthday celebrations" },
+  { slug: "valentines-surprise-vadodara", name: "Valentine's Surprise", emoji: "💝", description: "Romantic Valentine's surprises" },
+  { slug: "surprise-room-decoration-vadodara", name: "Surprise Decoration", emoji: "🎈", description: "Stunning surprise setups" },
+  { slug: "romantic-surprise-vadodara", name: "Romantic Surprise", emoji: "❤️", description: "Heart-melting romantic moments" },
 ];
 
 // ==================== VADODARA AREAS ====================

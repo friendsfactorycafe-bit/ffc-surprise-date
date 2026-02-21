@@ -1,24 +1,10 @@
 /**
- * FRIENDS FACTORY CAFE - SEO OPTIMIZED SITEMAP
+ * FRIENDS FACTORY CAFE - SURPRISE SITEMAP
  * Domain: friendsfactorycafe.com
- * 
- * Total Pages: 200+ including:
- * - 1 Homepage (priority 1.0)
- * - 7 Static pages (priority 0.8)
- * - 8 Service category pages (priority 0.9)
- * - 8 Package detail pages (priority 0.85)
- * - 120 Keyword pages (priority 0.85) - Main SEO pages
- * - 40 Vadodara Area pages (priority 0.8)
- * 
- * Last Updated: January 2026
+ * Total: 110+ pages (Surprise-focused)
  */
 
 import { MetadataRoute } from "next";
-import { 
-  serviceCategories, 
-  vadodaraAreas, 
-  packages
-} from "@/lib/ffc-config";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://friendsfactorycafe.com";
@@ -26,8 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   const entries: MetadataRoute.Sitemap = [];
   
-  // ==================== HOME PAGE ====================
-  // Highest priority - main landing page
+  // Homepage
   entries.push({
     url: baseUrl,
     lastModified: currentDate,
@@ -35,72 +20,102 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 1.0,
   });
   
-  // ==================== STATIC PAGES ====================
-  // Core pages with regular updates
-  const staticPages = [
-    { path: '/about', priority: 0.8, freq: 'monthly' as const },
-    { path: '/contact', priority: 0.9, freq: 'monthly' as const },
-    { path: '/menu', priority: 0.8, freq: 'weekly' as const },
-    { path: '/packages', priority: 0.9, freq: 'weekly' as const },
-    { path: '/services', priority: 0.9, freq: 'weekly' as const },
-    { path: '/virtual-tour', priority: 0.7, freq: 'monthly' as const },
-    { path: '/areas', priority: 0.8, freq: 'weekly' as const },
+  // Core Pages
+  const corePages = [
+    { path: '/about', priority: 0.8 },
+    { path: '/contact', priority: 0.9 },
+    { path: '/packages', priority: 0.9 },
+    { path: '/areas', priority: 0.8 },
+    { path: '/menu', priority: 0.7 },
+    { path: '/services', priority: 0.8 },
+    { path: '/virtual-tour', priority: 0.6 },
+    { path: '/blog', priority: 0.7 },
+    { path: '/rooftop-experience', priority: 0.7 },
   ];
   
-  staticPages.forEach((page) => {
+  corePages.forEach((page) => {
     entries.push({
       url: `${baseUrl}${page.path}`,
       lastModified: currentDate,
-      changeFrequency: page.freq,
+      changeFrequency: "weekly",
       priority: page.priority,
     });
   });
   
-  // ==================== SERVICE CATEGORY PAGES ====================
-  // 8 main service categories - high priority
-  serviceCategories.forEach((service) => {
-    entries.push({
-      url: `${baseUrl}/${service.slug}`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    });
-  });
+  // 53 Surprise Keyword Pages
+  const surpriseKeywords = [
+    'birthday-surprise-for-boyfriend-vadodara', 'birthday-surprise-for-girlfriend-vadodara',
+    'birthday-surprise-for-husband-vadodara', 'birthday-surprise-for-wife-vadodara',
+    'birthday-surprise-planners-vadodara', 'best-birthday-surprise-vadodara',
+    'midnight-birthday-surprise-vadodara', 'romantic-birthday-surprise-vadodara',
+    'surprise-birthday-party-vadodara', '25th-birthday-surprise-vadodara',
+    '30th-birthday-surprise-vadodara', '50th-birthday-surprise-vadodara',
+    'anniversary-surprise-for-husband-vadodara', 'anniversary-surprise-for-wife-vadodara',
+    'surprise-anniversary-date-vadodara', 'surprise-anniversary-party-vadodara',
+    'wedding-anniversary-surprise-vadodara', '1st-anniversary-surprise-vadodara',
+    '5th-anniversary-surprise-vadodara', 'surprise-proposal-vadodara',
+    'surprise-proposal-planners-vadodara', 'surprise-date-ideas-vadodara',
+    'surprise-date-for-boyfriend-vadodara', 'surprise-date-for-girlfriend-vadodara',
+    'surprise-date-for-husband-vadodara', 'surprise-date-for-wife-vadodara',
+    'surprise-date-night-vadodara', 'surprise-date-places-vadodara',
+    'surprise-date-setup-vadodara', 'surprise-date-decoration-vadodara',
+    'surprise-date-planners-vadodara', 'first-date-surprise-vadodara',
+    'surprise-party-for-boyfriend-vadodara', 'surprise-party-for-girlfriend-vadodara',
+    'private-surprise-party-vadodara', 'rooftop-surprise-party-vadodara',
+    'budget-surprise-party-vadodara', 'surprise-room-decoration-vadodara',
+    'surprise-balloon-decoration-vadodara', 'surprise-dinner-for-husband-vadodara',
+    'surprise-dinner-for-wife-vadodara', 'surprise-gift-for-boyfriend-vadodara',
+    'surprise-gift-for-girlfriend-vadodara', 'surprise-celebration-venue-vadodara',
+    'romantic-surprise-vadodara', 'luxury-surprise-celebration-vadodara',
+    'honeymoon-surprise-vadodara', 'valentines-surprise-vadodara',
+    'diwali-surprise-vadodara', 'new-year-surprise-vadodara',
+    'christmas-surprise-vadodara', 'holi-surprise-vadodara', 'karwa-chauth-surprise-vadodara',
+  ];
   
-  // ==================== PACKAGE DETAIL PAGES ====================
-  // 8 setup packages - high priority for conversions
-  packages.forEach((pkg) => {
+  surpriseKeywords.forEach((keyword) => {
     entries.push({
-      url: `${baseUrl}/packages/${pkg.slug}`,
+      url: `${baseUrl}/${keyword}`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.85,
     });
   });
   
-  // ==================== KEYWORD PAGES (MAIN SEO) ====================
-  // 120 keyword pages (15 per service × 8 services)
-  // These are the main SEO landing pages targeting specific search queries
-  // URL Structure: /{keyword}
-  serviceCategories.forEach((service) => {
-    service.keywords.forEach((keyword) => {
-      entries.push({
-        url: `${baseUrl}/${keyword.slug}`,
-        lastModified: currentDate,
-        changeFrequency: "weekly",
-        priority: 0.85,
-      });
-    });
-  });
+  // 40 Area Pages
+  const areas = [
+    'ajwa-road-vadodara', 'akota-vadodara', 'alkapuri-vadodara', 'atladra-vadodara',
+    'bhayli-vadodara', 'bil-vadodara', 'chhani-vadodara', 'dabhoi-road-vadodara',
+    'diwalipura-vadodara', 'ellora-park-vadodara', 'fatehgunj-vadodara', 'gorwa-vadodara',
+    'gotri-vadodara', 'harni-vadodara', 'jetalpur-vadodara', 'kalali-vadodara',
+    'karelibaug-vadodara', 'karodiya-vadodara', 'koyali-vadodara', 'makarpura-vadodara',
+    'mandvi-vadodara', 'maneja-vadodara', 'manjalpur-vadodara', 'nizampura-vadodara',
+    'nyay-mandir-vadodara', 'old-padra-road-vadodara', 'race-course-vadodara', 'ranoli-vadodara',
+    'raopura-vadodara', 'sama-savli-road-vadodara', 'sama-vadodara', 'sayajigunj-vadodara',
+    'sevasi-vadodara', 'subhanpura-vadodara', 'tandalja-vadodara', 'tarsali-vadodara',
+    'tp-13-vadodara', 'undera-vadodara', 'vasna-vadodara', 'waghodia-road-vadodara',
+  ];
   
-  // ==================== AREA PAGES ====================
-  // 40 Vadodara area pages for local SEO
-  vadodaraAreas.forEach((area) => {
+  areas.forEach((area) => {
     entries.push({
-      url: `${baseUrl}/${area.slug}`,
+      url: `${baseUrl}/${area}`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.8,
+    });
+  });
+  
+  // Package Pages
+  const packageSlugs = [
+    'classic-love', 'premium-romance', 'royal-celebration', 'platinum-paradise',
+    'birthday-bash', 'anniversary-special', 'proposal-perfect', 'festival-special'
+  ];
+  
+  packageSlugs.forEach((pkg) => {
+    entries.push({
+      url: `${baseUrl}/packages/${pkg}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
     });
   });
   

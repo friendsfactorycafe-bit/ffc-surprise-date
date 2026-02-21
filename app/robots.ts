@@ -1,14 +1,7 @@
 /**
- * FRIENDS FACTORY CAFE - SEO OPTIMIZED ROBOTS.TXT
+ * FRIENDS FACTORY CAFE - ROBOTS.TXT
  * Domain: friendsfactorycafe.com
- * 
- * Configuration for search engine crawlers:
- * - Allow all public pages
- * - Block admin, API, and private routes
- * - Specify sitemap location
- * - Set crawl delay for responsible crawling
- * 
- * Last Updated: January 2026
+ * Surprise Planning Specialists in Vadodara
  */
 
 import { MetadataRoute } from "next";
@@ -19,62 +12,29 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        // Default rule for all crawlers
         userAgent: "*",
-        allow: [
-          "/",
-          "/about",
-          "/contact",
-          "/menu",
-          "/packages",
-          "/packages/*",
-          "/services",
-          "/virtual-tour",
-        ],
-        disallow: [
-          "/api/",
-          "/admin/",
-          "/private/",
-          "/_next/",
-          "/leads",
-          "/*.json$",
-        ],
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/", "/_next/", "/leads"],
       },
       {
-        // Google crawler - full access
         userAgent: "Googlebot",
         allow: "/",
         disallow: ["/api/", "/admin/", "/private/", "/leads"],
       },
       {
-        // Google Images crawler
-        userAgent: "Googlebot-Image",
-        allow: ["/images/", "/packages/"],
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        // Bing crawler
         userAgent: "Bingbot",
         allow: "/",
         disallow: ["/api/", "/admin/", "/private/", "/leads"],
       },
       {
-        // Facebook crawler for social sharing
         userAgent: "facebookexternalhit",
         allow: "/",
       },
       {
-        // Twitter crawler for cards
         userAgent: "Twitterbot",
         allow: "/",
       },
       {
-        // LinkedIn crawler
-        userAgent: "LinkedInBot",
-        allow: "/",
-      },
-      {
-        // WhatsApp crawler for link previews
         userAgent: "WhatsApp",
         allow: "/",
       },

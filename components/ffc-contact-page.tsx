@@ -18,13 +18,13 @@ export default function FFCContactPage() {
       <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-amber-700 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <Badge className="mb-4 bg-white/20 text-white border-white/30">
-            <MessageCircle className="h-4 w-4 mr-2" /> Get In Touch
+            <MessageCircle className="h-4 w-4 mr-2" /> Plan Your Surprise
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
-            Contact Us
+            Ready to Plan a Surprise?
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            We'd love to hear from you! Book your celebration or ask us anything.
+            Let's make their jaw drop! Contact us to start planning the perfect surprise.
           </p>
         </div>
       </section>
@@ -36,7 +36,7 @@ export default function FFCContactPage() {
             {/* Contact Info */}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-8 font-serif">
-                Let's Connect
+                Let's Plan Your Surprise! 🎁
               </h2>
               
               <div className="space-y-6">
@@ -49,7 +49,7 @@ export default function FFCContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg mb-1">Call Us</h3>
-                        <p className="text-gray-600 mb-2">We're available for calls and booking inquiries</p>
+                        <p className="text-gray-600 mb-2">Talk to our surprise planning experts</p>
                         <a 
                           href={`tel:${siteConfig.phone}`}
                           className="text-xl font-bold text-amber-600 hover:text-amber-700"
@@ -69,8 +69,8 @@ export default function FFCContactPage() {
                         <MessageCircle className="h-6 w-6 text-green-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-lg mb-1">WhatsApp</h3>
-                        <p className="text-gray-600 mb-2">Quick responses via WhatsApp</p>
+                        <h3 className="font-semibold text-lg mb-1">WhatsApp (Fastest!)</h3>
+                        <p className="text-gray-600 mb-2">Get instant replies for surprise planning</p>
                         <a 
                           href={`https://wa.me/${siteConfig.whatsapp}`}
                           target="_blank"
@@ -176,7 +176,7 @@ export default function FFCContactPage() {
             {/* Booking Form */}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-8 font-serif">
-                Book Your Celebration
+                Book Your Surprise Now
               </h2>
               <FFCBookingForm pageTitle="Contact Page" />
             </div>
@@ -188,8 +188,8 @@ export default function FFCContactPage() {
       <section className="py-16 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold font-serif">Find Us</h2>
-            <p className="text-gray-600 mt-2">Visit Friends Factory Cafe in Vadodara</p>
+            <h2 className="text-2xl md:text-3xl font-bold font-serif">Visit Our Surprise Venue</h2>
+            <p className="text-gray-600 mt-2">Friends Factory Cafe - Vadodara's #1 Surprise Planning Venue</p>
           </div>
           <div className="max-w-5xl mx-auto">
             <div className="rounded-xl overflow-hidden shadow-lg">

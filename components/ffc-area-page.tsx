@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, Star, Check, Phone, MessageCircle, MapPin, Heart, Gift, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -10,8 +11,17 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { FFCHeader, FFCFooter } from '@/components/ffc-layout';
 import { FFCBookingForm, FFCWhatsAppFloat, FFCBookNowButton } from '@/components/ffc-booking-form';
 import { FFCGalleryCompact } from '@/components/ffc-gallery';
-import { AreaConfig, packages, serviceCategories, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
+import { AreaConfig, packages, surpriseOnlyServices, vadodaraAreas, siteConfig, formatPrice } from '@/lib/ffc-config';
 import { getAreaContent } from '@/lib/ffc-area-content';
+
+// Hero images for area pages
+const areaHeroImages = [
+  '/images/gallery/IMG_20260119_194315672.jpg',
+  '/images/gallery/IMG_20260119_194325684.jpg',
+  '/images/gallery/IMG_20260119_194351411.jpg',
+  '/images/gallery/IMG_20251126_195441411.jpg',
+  '/images/gallery/IMG_20251126_195451844.jpg',
+];
 
 interface AreaPageProps {
   area: AreaConfig;
@@ -23,6 +33,10 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
   
   // Get unique content for this area (if available)
   const uniqueContent = getAreaContent(area.slug);
+  
+  // Get a consistent hero image based on area slug
+  const heroImageIndex = area.slug.length % areaHeroImages.length;
+  const heroImage = areaHeroImages[heroImageIndex];
 
   return (
     <div className="min-h-screen bg-white">
@@ -50,10 +64,10 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 <MapPin className="h-4 w-4 mr-2" /> {area.name}, Vadodara
               </Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-serif">
-                Romantic Celebrations in {area.name}
+                Surprise Celebrations Near {area.name}
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-                {uniqueContent?.heroSubtitle || `Friends Factory Cafe brings premium romantic celebration experiences to couples in ${area.name}, Vadodara. Book birthday surprises, candlelight dinners, anniversaries & more!`}
+                {uniqueContent?.heroSubtitle || `Planning a surprise for your loved one from ${area.name}? Friends Factory Cafe is Vadodara's #1 surprise planning venue for birthday surprises, anniversary surprises & romantic surprises!`}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -80,25 +94,34 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 ) : (
                   <>
                     <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                      <Star className="h-4 w-4" /> 4.9★ Rating
+                      <Star className="h-4 w-4" /> 4.9★ Rated
                     </span>
                     <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
                       <Check className="h-4 w-4" /> 100% Private
                     </span>
                     <span className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
-                      <Heart className="h-4 w-4" /> Couples Only
+                      <Gift className="h-4 w-4" /> 3000+ Surprises
                     </span>
                   </>
                 )}
               </div>
             </div>
             
-            {/* Hero Visual */}
+            {/* Hero Visual - Real Photo */}
             <div className="hidden lg:flex justify-center">
-              <div className="w-72 h-72 rounded-full bg-white/10 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-16 w-16 mx-auto mb-2" />
-                  <span className="text-2xl font-serif">{area.name}</span>
+              <div className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src={heroImage}
+                  alt={`Surprise celebration in ${area.name}, Vadodara`}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4 text-center">
+                  <span className="bg-white/90 text-amber-600 px-3 py-1 rounded-full text-sm font-semibold flex items-center justify-center gap-1">
+                    <MapPin className="h-3 w-3" /> {area.name}
+                  </span>
                 </div>
               </div>
             </div>
@@ -112,10 +135,10 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4 font-serif">
-                Most Popular in {area.name}
+                Popular Surprises From {area.name}
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                What {area.name} couples celebrate most with us
+                What {area.name} couples surprise their loved ones with
               </p>
             </div>
             
@@ -140,15 +163,15 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 font-serif">
-              Our Services in {area.name}
+              Surprise Services for {area.name}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {uniqueContent?.servicesDescription || `All celebration services available for couples in ${area.name}`}
+              {uniqueContent?.servicesDescription || `All surprise celebration services available for couples from ${area.name}`}
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {serviceCategories.map((service) => (
+            {surpriseOnlyServices.map((service) => (
               <Link key={service.slug} href={`/${service.slug}`}>
                 <Card className="h-full hover:shadow-lg transition-all border-amber-100 group text-center">
                   <CardContent className="p-4 md:p-6">
@@ -157,7 +180,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                       {service.name}
                     </h3>
                     <p className="text-gray-600 text-xs md:text-sm line-clamp-1 hidden md:block">
-                      in {area.name}
+                      {service.description}
                     </p>
                   </CardContent>
                 </Card>
@@ -175,7 +198,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
             <div className="lg:col-span-2">
               <article className="prose prose-lg max-w-none">
                 <h2 className="text-2xl font-bold mb-6 font-serif">
-                  Romantic Celebrations Near {area.name}
+                  Surprise Planning Near {area.name}
                 </h2>
                 
                 {/* Unique Introduction Content */}
@@ -186,10 +209,10 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 ) : (
                   <>
                     <p className="text-gray-600 mb-6">
-                      Are you looking for the perfect romantic celebration venue near {area.name}, Vadodara? Friends Factory Cafe is your destination for creating unforgettable moments with your loved one.
+                      Planning a surprise for your loved one from {area.name}, Vadodara? Friends Factory Cafe is your go-to surprise planning venue for creating jaw-dropping moments they'll never forget!
                     </p>
                     <p className="text-gray-600 mb-6">
-                      Whether you're celebrating a birthday, anniversary, proposal, or simply want a romantic candlelight dinner, our venue offers stunning rooftop setups and elegant glass houses that provide the perfect ambiance for your special moments.
+                      Whether you're planning a birthday surprise, anniversary surprise, surprise proposal, or a romantic surprise date, our 100% private rooftop venue offers stunning decorations, delicious food, and the perfect ambiance to make their heart skip a beat.
                     </p>
                   </>
                 )}
@@ -208,18 +231,18 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 <div className="bg-white rounded-xl p-6 mb-8">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                     <Gift className="h-5 w-5 text-amber-600" />
-                    What We Offer in {area.name}
+                    Surprise Services for {area.name}
                   </h3>
                   <div className="grid md:grid-cols-2 gap-3">
                     {[
-                      "Birthday Surprise Celebrations",
-                      "Candlelight Dinner Dates",
-                      "Anniversary Celebrations",
-                      "Romantic Proposal Setups",
+                      "Birthday Surprise Planning",
+                      "Anniversary Surprise Setup",
+                      "Surprise Proposal Arrangements",
                       "Surprise Date Nights",
-                      "Pre-Wedding Photoshoots",
-                      "Baby Moment Celebrations",
-                      "Custom Celebrations"
+                      "Midnight Birthday Surprises",
+                      "Surprise Gift Delivery",
+                      "Romantic Surprise Dates",
+                      "Custom Surprise Celebrations"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <Check className="h-4 w-4 text-amber-600 flex-shrink-0" />
@@ -240,7 +263,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                 )}
 
                 <h3 className="text-xl font-bold mb-4">
-                  Why Couples in {area.name} Love Us
+                  Why {area.name} Couples Trust Us for Surprises
                 </h3>
                 
                 <ul className="space-y-3 mb-8">
@@ -255,19 +278,19 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
                     <>
                       <li className="flex items-start gap-3">
                         <span className="text-amber-600 font-bold">•</span>
-                        <span><strong>Convenient Location:</strong> Easy access from {area.name} and all parts of Vadodara.</span>
+                        <span><strong>Expert Surprise Planning:</strong> We help you plan the perfect surprise from start to finish.</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-amber-600 font-bold">•</span>
-                        <span><strong>100% Privacy:</strong> Your celebration is completely private with exclusive booking.</span>
+                        <span><strong>100% Secret & Private:</strong> Your surprise stays completely secret — no other guests during your booking.</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-amber-600 font-bold">•</span>
-                        <span><strong>8 Unique Setups:</strong> Choose from rooftop and glass house experiences.</span>
+                        <span><strong>8 Stunning Surprise Setups:</strong> Balloon arches, fairy lights, flower decorations & more.</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="text-amber-600 font-bold">•</span>
-                        <span><strong>All-Inclusive Packages:</strong> Food, decorations, music, and more included.</span>
+                        <span><strong>Complete Surprise Package:</strong> Decorations, cake, food, music — everything ready before they arrive!</span>
                       </li>
                     </>
                   )}
@@ -400,7 +423,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
               {/* Packages */}
               <div className="mt-12">
                 <h2 className="text-2xl font-bold mb-6 font-serif">
-                  Popular Packages for {area.name} Couples
+                  Surprise Packages for {area.name}
                 </h2>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -501,27 +524,27 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold mb-4 font-serif">
-              FAQs - Celebrations in {area.name}
+              FAQs - Planning Surprises From {area.name}
             </h2>
           </div>
           
           <Accordion type="single" collapsible className="space-y-4">
             {(uniqueContent?.faqs || [
               {
-                question: `How do couples from ${area.name} reach Friends Factory Cafe?`,
-                answer: `Friends Factory Cafe is conveniently located in Vadodara and easily accessible from ${area.name}. You can reach us by car, auto, or cab in a short time. Contact us for exact directions.`
+                question: `How do I plan a surprise for someone from ${area.name}?`,
+                answer: `It's easy! Contact us via WhatsApp or call, share your surprise idea, and we'll help you plan everything. The setup will be ready before your loved one arrives — they'll be completely surprised!`
               },
               {
-                question: "Do you offer pickup services?",
-                answer: "Currently, we don't offer pickup services, but we can help guide you with the best routes from your location."
+                question: "Will my surprise stay a secret?",
+                answer: "Absolutely! Your surprise is 100% private — no other guests during your booking. Bring them blindfolded or under a different excuse, and watch their jaw drop!"
               },
               {
-                question: "What are the booking options available?",
-                answer: `Couples from ${area.name} can book via WhatsApp, phone call, or our online form. We recommend booking 2-3 days in advance for your preferred slot.`
+                question: `How far is Friends Factory from ${area.name}?`,
+                answer: `Friends Factory Cafe is conveniently located in Gotri, Vadodara — easily accessible from ${area.name} by car, auto, or cab. Contact us for exact directions.`
               },
               {
-                question: "Is the venue private?",
-                answer: "Yes! Your celebration is 100% private. No other guests will be present during your booking slot."
+                question: "What's included in the surprise setup?",
+                answer: "Everything! Balloon decorations, fairy lights, candles, surprise cake, welcome drink, delicious food, soft music, and a 100% private venue for 3 magical hours."
               }
             ]).map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`} className="bg-white rounded-lg border border-amber-100 px-6">
@@ -538,7 +561,7 @@ export default function FFCAreaPage({ area }: AreaPageProps) {
       </section>
 
       {/* Gallery Section */}
-      <FFCGalleryCompact title={`Celebrations in ${area.name}`} maxItems={8} />
+      <FFCGalleryCompact title={`Real Surprises for ${area.name} Couples`} maxItems={8} />
 
       <FFCFooter />
       <FFCWhatsAppFloat />
