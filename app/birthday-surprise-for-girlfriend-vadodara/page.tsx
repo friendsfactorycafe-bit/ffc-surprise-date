@@ -8,6 +8,9 @@ const keyword = getKeywordBySlug('birthday-surprise', 'birthday-surprise-for-gir
 export const metadata: Metadata = {
   title: keyword?.metaTitle || 'Friends Factory Cafe',
   description: keyword?.metaDescription || '',
+  alternates: {
+    canonical: '/birthday-surprise-for-girlfriend-vadodara',
+  },
 };
 
 export default function Page() {

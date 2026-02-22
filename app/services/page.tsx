@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     'anniversary celebration vadodara',
     'proposal setup vadodara',
     'friends factory cafe services'
-  ]
+  ],
+  alternates: {
+    canonical: '/services',
+  },
 };
 
 export default function ServicesPage() {

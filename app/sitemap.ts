@@ -1,13 +1,13 @@
 /**
  * FRIENDS FACTORY CAFE - SURPRISE SITEMAP
- * Domain: friendsfactorycafe.com
+ * Domain: surprisedatevadodara.com
  * Total: 110+ pages (Surprise-focused)
  */
 
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://friendsfactorycafe.com";
+  const baseUrl = "https://surprisedatevadodara.com";
   const currentDate = new Date().toISOString();
   
   const entries: MetadataRoute.Sitemap = [];

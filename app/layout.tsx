@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://friendsfactorycafe.com"),
+  metadataBase: new URL("https://surprisedatevadodara.com"),
   title: {
     default: "Friends Factory Cafe | Surprise Planning Vadodara",
     template: "%s | Friends Factory Cafe",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     "anniversary surprise for husband vadodara",
     "anniversary surprise for wife vadodara"
   ],
-  authors: [{ name: "Friends Factory Cafe", url: "https://friendsfactorycafe.com" }],
+  authors: [{ name: "Friends Factory Cafe", url: "https://surprisedatevadodara.com" }],
   creator: "Friends Factory Cafe",
   publisher: "Friends Factory Cafe",
   formatDetection: {
@@ -66,15 +66,12 @@ export const metadata: Metadata = {
     address: true,
     telephone: true,
   },
-  alternates: {
-    canonical: "https://friendsfactorycafe.com",
-  },
   category: "Restaurant",
   classification: "Romantic Celebration Venue",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://friendsfactorycafe.com",
+    url: "https://surprisedatevadodara.com",
     siteName: "Friends Factory Cafe",
     title: "Friends Factory Cafe Vadodara | Best Romantic Celebration Venue",
     description: "Best romantic celebration venue in Vadodara. Birthday surprises, candlelight dinners, anniversaries, proposals. 100% private rooftop & glass house experiences. Starting ₹6,900.",
@@ -135,20 +132,20 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://friendsfactorycafe.com/#business",
+      "@id": "https://surprisedatevadodara.com/#business",
       "name": "Friends Factory Cafe",
       "alternateName": "Friends Factory Cafe Vadodara",
       "description": "Best romantic celebration venue in Vadodara, Gujarat. Birthday surprises, candlelight dinners, anniversary celebrations, proposals, pre-wedding shoots. 100% private rooftop & glass house experiences.",
-      "url": "https://friendsfactorycafe.com",
+      "url": "https://surprisedatevadodara.com",
       "telephone": "+91-7487888730",
-      "email": "hello@friendsfactorycafe.com",
+      "email": "hello@surprisedatevadodara.com",
       "priceRange": "₹₹₹",
       "currenciesAccepted": "INR",
       "paymentAccepted": "Cash, Credit Card, UPI, GPay, PhonePe",
       "image": [
-        "https://friendsfactorycafe.com/images/gallery/romantic-rooftop-candlelight-dinner-vadodara-1.jpg",
-        "https://friendsfactorycafe.com/images/gallery/birthday-surprise-decoration-vadodara-1.jpg",
-        "https://friendsfactorycafe.com/images/gallery/glass-house-dinner-vadodara-1.jpg"
+        "https://surprisedatevadodara.com/images/gallery/romantic-rooftop-candlelight-dinner-vadodara-1.jpg",
+        "https://surprisedatevadodara.com/images/gallery/birthday-surprise-decoration-vadodara-1.jpg",
+        "https://surprisedatevadodara.com/images/gallery/glass-house-dinner-vadodara-1.jpg"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -221,30 +218,30 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://friendsfactorycafe.com/#website",
-      "url": "https://friendsfactorycafe.com",
+      "@id": "https://surprisedatevadodara.com/#website",
+      "url": "https://surprisedatevadodara.com",
       "name": "Friends Factory Cafe",
       "description": "Best romantic celebration venue in Vadodara",
       "publisher": {
-        "@id": "https://friendsfactorycafe.com/#business"
+        "@id": "https://surprisedatevadodara.com/#business"
       },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://friendsfactorycafe.com/services?q={search_term_string}"
+          "urlTemplate": "https://surprisedatevadodara.com/services?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "Organization",
-      "@id": "https://friendsfactorycafe.com/#organization",
+      "@id": "https://surprisedatevadodara.com/#organization",
       "name": "Friends Factory Cafe",
-      "url": "https://friendsfactorycafe.com",
+      "url": "https://surprisedatevadodara.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://friendsfactorycafe.com/images/gallery/friends-factory-cafe-logo-1.png",
+        "url": "https://surprisedatevadodara.com/images/gallery/friends-factory-cafe-logo-1.png",
         "width": "512",
         "height": "512"
       },
@@ -258,25 +255,25 @@ const jsonLd = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://friendsfactorycafe.com/#breadcrumb",
+      "@id": "https://surprisedatevadodara.com/#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://friendsfactorycafe.com"
+          "item": "https://surprisedatevadodara.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Services",
-          "item": "https://friendsfactorycafe.com/services"
+          "item": "https://surprisedatevadodara.com/services"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Packages",
-          "item": "https://friendsfactorycafe.com/packages"
+          "item": "https://surprisedatevadodara.com/packages"
         }
       ]
     }

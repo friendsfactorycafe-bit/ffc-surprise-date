@@ -64,6 +64,9 @@ export const galleryItems: GalleryItem[] = [
   { type: 'video', src: '/images/gallery/VID-20250416-WA0011.mp4', alt: 'Romantic surprise video Vadodara', title: 'Romantic Video', featured: false },
 ];
 
+// Hero images for keyword and area pages
+export const birthdayHeroImages = galleryItems.filter(i => i.type === 'image').slice(0, 6).map(i => i.src);
+
 interface FFCGalleryProps {
   title?: string;
   subtitle?: string;
